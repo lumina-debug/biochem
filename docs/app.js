@@ -127,8 +127,8 @@
     el.className = "chapter-card" + (info.id === "all" ? " chapter-card--all" : "");
     el.type = "button";
     var meta = info.id === "all"
-      ? info.subtitle
-      : info.count + "問 · 空欄" + info.blanks + "個";
+      ? "🔀 " + info.subtitle
+      : "🔀 ランダム出題 · " + info.count + "問 · 空欄" + info.blanks + "個";
     el.innerHTML =
       '<span class="chapter-no">' + escapeHtml(info.no) + '</span>' +
       '<span class="chapter-body">' +
