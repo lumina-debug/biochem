@@ -199,6 +199,21 @@ body {
 .score-line--ok { background: var(--accent-soft); color: var(--accent-ink); }
 .score-line--low { background: var(--wrong-soft); color: var(--wrong); }
 
+/* 解答と別解パネル */
+.answer-key { margin-top: 18px; padding-top: 16px; border-top: 1px dashed var(--border); }
+.ak-title { font-size: 13px; font-weight: 700; color: var(--text-soft); margin-bottom: 10px; }
+.ak-row { display: flex; gap: 10px; padding: 8px 10px; border-radius: 10px; margin-bottom: 6px; background: var(--bg); border: 1px solid var(--border); }
+.ak-row.ak-ng { background: var(--wrong-soft); border-color: transparent; }
+.ak-row.ak-ok { background: var(--correct-soft); border-color: transparent; }
+.ak-n { flex: 0 0 auto; width: 22px; height: 22px; border-radius: 6px; background: var(--bg-elev); color: var(--text-soft); font-size: 12px; font-weight: 700; display: grid; place-items: center; }
+.ak-body { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; min-width: 0; }
+.ak-mark { font-weight: 800; }
+.ak-ok .ak-mark { color: var(--correct); }
+.ak-ng .ak-mark { color: var(--wrong); }
+.ak-a { font-weight: 700; font-size: 15px; color: var(--text); }
+.ak-user { font-size: 12.5px; color: var(--wrong); }
+.ak-alts { font-size: 12.5px; color: var(--text-soft); flex-basis: 100%; }
+
 /* アクション */
 .actions { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 18px; }
 .actions-right { display: flex; gap: 10px; }

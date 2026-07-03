@@ -213,6 +213,8 @@
     document.getElementById("btn-next").hidden = true;
     document.getElementById("btn-retry").hidden = true;
     document.getElementById("score-line").hidden = true;
+    var ak = document.getElementById("answer-key");
+    ak.hidden = true; ak.innerHTML = "";
 
     // 前へボタン
     document.getElementById("btn-prev").disabled = (state.pos === 0);
@@ -329,6 +331,7 @@
     var blanks = blanksOf(q);
     var correct = 0;
     var blankIndex = 0;
+    var keyRows = [];
 
     q.segments.forEach(function (seg) {
       if (typeof seg !== "object") return;
@@ -355,9 +358,14 @@
         ans.textContent = "→ " + seg.a;
         ans.className = "blank-answer is-wrong";
       }
+
+      keyRows.push({ num: blankIndex, ok: ok, user: val, a: seg.a, alt: seg.alt || [] });
     });
 
     state.graded = true;
+
+    // 解答と別解の一覧を表示
+    renderAnswerKey(keyRows);
 
     // 統計
     state.stats.answered++;
@@ -389,6 +397,27 @@
     // 進捗バー更新
     var pctBar = state.order.length ? Math.round(((state.pos + 1) / state.order.length) * 100) : 0;
     document.getElementById("progress-fill").style.width = pctBar + "%";
+  }
+
+  // 採点後に「解答と別解」の一覧を描画する
+  function renderAnswerKey(rows) {
+    var ak = document.getElementById("answer-key");
+    ak.hidden = false;
+    var html = '<div class="ak-title">解答と別解（英語や別の言い方でも正解）</div>';
+    rows.forEach(function (r) {
+      // 別解は表示上の重複を軽く除いて全て見せる
+      var alts = (r.alt || []).filter(function (x) { return normalize(x) !== normalize(r.a); });
+      html += '<div class="ak-row ' + (r.ok ? "ak-ok" : "ak-ng") + '">'
+        + '<span class="ak-n">' + r.num + '</span>'
+        + '<span class="ak-body">'
+        + '<span class="ak-mark">' + (r.ok ? "✓" : "✗") + '</span>'
+        + '<span class="ak-a">' + escapeHtml(r.a) + '</span>'
+        + (r.ok ? "" : '<span class="ak-user">あなたの解答: ' + escapeHtml(r.user || "（未入力）") + '</span>')
+        + (alts.length ? '<span class="ak-alts">別解: ' + escapeHtml(alts.join(" / ")) + '</span>' : "")
+        + '</span>'
+        + '</div>';
+    });
+    ak.innerHTML = html;
   }
 
   function retryCurrent() {
