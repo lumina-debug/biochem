@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ja" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>生化学 長文穴埋め問題</title>
+  <meta name="description" content="生化学（代謝・解糖・糖新生・ペントースリン酸経路・糖尿病）の長文穴埋め問題演習サイト" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand">
+        <span class="brand-mark">🧬</span>
+        <div class="brand-text">
+          <span class="brand-title">生化学 長文穴埋め問題</span>
+          <span class="brand-sub">代謝・解糖・糖新生・PPP・糖輸送体と糖尿病</span>
+        </div>
+      </div>
+      <button id="btn-theme" class="icon-btn" type="button" title="ライト/ダーク切替" aria-label="テーマ切替">◐</button>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- ===== ホーム ===== -->
+    <section id="view-home" class="view">
+      <div class="intro">
+        <h1>章を選んで演習を始めましょう</h1>
+        <p>各講義のまとめから作成した長文穴埋め問題です。空欄に用語を入力し、<strong>採点する</strong>で正誤を確認できます。答えが思い出せないときは、上部の<strong>選択モード</strong>で語群から選べます。</p>
+      </div>
+      <div id="chapter-list" class="chapter-list"></div>
+      <p class="disclaimer">出典：本リポジトリ内の各講義まとめ（慶應義塾大学 医学部 涌井昌俊 准教授 講義に基づく学習ノート）。学習用の補助教材です。</p>
+    </section>
+
+    <!-- ===== 出題 ===== -->
+    <section id="view-quiz" class="view" hidden>
+      <div class="quiz-topbar">
+        <button id="btn-home" class="text-btn" type="button">← 章の選択に戻る</button>
+        <div class="mode-toggle" role="group" aria-label="解答モード">
+          <button id="mode-type" class="mode-btn is-active" type="button" aria-pressed="true">記述モード</button>
+          <button id="mode-bank" class="mode-btn" type="button" aria-pressed="false">選択モード</button>
+        </div>
+      </div>
+
+      <div class="progress-bar"><div id="progress-fill" class="progress-fill"></div></div>
+
+      <div class="quiz-meta">
+        <span id="quiz-chapter" class="quiz-chapter"></span>
+        <span id="quiz-progress" class="quiz-count"></span>
+      </div>
+
+      <article class="card">
+        <div class="card-head">
+          <h2 id="quiz-title" class="quiz-title"></h2>
+          <span id="quiz-source" class="quiz-source"></span>
+        </div>
+        <div id="passage" class="passage"></div>
+        <div id="word-bank" class="word-bank" hidden></div>
+        <div id="score-line" class="score-line" hidden></div>
+      </article>
+
+      <div class="actions">
+        <button id="btn-prev" class="btn btn-ghost" type="button">← 前へ</button>
+        <div class="actions-right">
+          <button id="btn-retry" class="btn btn-ghost" type="button" hidden>やり直す</button>
+          <button id="btn-grade" class="btn btn-primary" type="button">採点する</button>
+          <button id="btn-next" class="btn btn-primary" type="button" hidden>次の問題 →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 結果 ===== -->
+    <section id="view-result" class="view" hidden>
+      <div class="result-card">
+        <h2>おつかれさまでした</h2>
+        <div id="result-ring" class="result-ring">
+          <span id="result-ring-val" class="result-ring-val">0%</span>
+        </div>
+        <p id="result-message" class="result-message"></p>
+        <dl class="result-stats">
+          <div><dt>全問正解した設問</dt><dd id="result-perfect">0 / 0</dd></div>
+          <div><dt>正解した空欄</dt><dd id="result-blanks">0 / 0</dd></div>
+        </dl>
+        <div class="result-actions">
+          <button id="btn-restart" class="btn btn-primary" type="button">もう一度この章に挑戦</button>
+          <button id="btn-home-2" class="btn btn-ghost" type="button">別の章を選ぶ</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <span>生化学 試験対策 · 長文穴埋め演習</span>
+  </footer>
+
+  <script src="questions.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
