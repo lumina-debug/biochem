@@ -97,7 +97,7 @@ window.QUESTION_BANK = {
       ]
     },
     {
-      id: "intro-4", chapter: "intro", title: "ATPとリン酸基転移ポテンシャル",
+      id: "intro-4", chapter: "intro", title: "ATPとリン酸基転移ポテンシャル(内容が細かすぎるためskip推奨)",
       source: "序論 §8",
       segments: [
         "ATPはアデノシンに3つのリン酸が連なった構造で、リン酸どうしは",
