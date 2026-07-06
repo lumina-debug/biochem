@@ -215,6 +215,8 @@
     document.getElementById("score-line").hidden = true;
     var ak = document.getElementById("answer-key");
     ak.hidden = true; ak.innerHTML = "";
+    var eb = document.getElementById("explain-box");
+    eb.hidden = true; eb.innerHTML = "";
 
     // 前へボタン
     document.getElementById("btn-prev").disabled = (state.pos === 0);
@@ -364,8 +366,9 @@
 
     state.graded = true;
 
-    // 解答と別解の一覧を表示
+    // 解答と別解の一覧、および解説を表示
     renderAnswerKey(keyRows);
+    renderExplain(q);
 
     // 統計
     state.stats.answered++;
@@ -418,6 +421,19 @@
         + '</div>';
     });
     ak.innerHTML = html;
+  }
+
+  // 採点後に解説を描画する
+  function renderExplain(q) {
+    var eb = document.getElementById("explain-box");
+    if (q && q.explain) {
+      eb.hidden = false;
+      eb.innerHTML = '<span class="explain-label">解説</span>'
+        + '<span class="explain-text">' + escapeHtml(q.explain).replace(/\n/g, "<br>") + '</span>';
+    } else {
+      eb.hidden = true;
+      eb.innerHTML = "";
+    }
   }
 
   function retryCurrent() {
