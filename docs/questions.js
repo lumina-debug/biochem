@@ -28,7 +28,9 @@ window.QUESTION_BANK = {
     { id: "gngctrl", no: "制御", title: "糖新生系の代謝制御",           subtitle: "PEPCK・ホルモンシグナル・臓器連関" },
     { id: "glycogen",no: "貯蔵", title: "グリコーゲン代謝",             subtitle: "合成・分解・ホルモン制御・PhK・PP1" },
     { id: "etc",     no: "呼吸", title: "電子伝達系とATP合成",          subtitle: "NADHシャトル・4複合体・ATP合成酵素・脱共役" },
-    { id: "kakomon", no: "過去問", title: "過去問（穴埋め）",           subtitle: "2019・2021・2023・2024・2025 実際の試験問題に基づく" }
+    { id: "kakomon", no: "過去問", title: "過去問（穴埋め）",           subtitle: "2019・2021・2023・2024・2025 実際の試験問題に基づく" },
+    { id: "fa",      no: "脂質", title: "脂肪酸代謝",                   subtitle: "消化・β酸化・ケトン体・合成・ACC調節" },
+    { id: "recall",  no: "全反応", title: "全反応リコール",             subtitle: "経路の全酵素・生成物を順に答える総まとめ" }
   ],
 
   questions: [
@@ -1121,6 +1123,368 @@ window.QUESTION_BANK = {
         "する。このとき電子伝達のエネルギーはATPにならず",
         { a: "熱", alt: ["熱産生", "heat", "熱エネルギー"] },
         "になる。"
+      ]
+    },
+
+    /* =========================================================
+     * 脂肪酸代謝（10_脂肪酸のスライドに基づく）
+     * ========================================================= */
+    {
+      id: "fa-1", chapter: "fa", title: "脂質の消化・吸収とカイロミクロン",
+      source: "脂肪酸 §2",
+      explain: "食事脂肪は胆汁酸(肝でコレステロールから合成)のミセルと膵リパーゼ(コリパーゼが胆汁酸から保護)で分解・吸収され、腸細胞でTGに再合成されてApoB-48をもつカイロミクロン(TG約90%)としてリンパへ出る。",
+      segments: [
+        "食事脂肪の消化で、TGの加水分解を担う主要酵素は小腸で働く",
+        { a: "膵リパーゼ", alt: ["膵臓リパーゼ", "pancreatic lipase", "膵リパーゼ(pancreatic lipase)"] },
+        "である。肝でコレステロールから合成される",
+        { a: "胆汁酸", alt: ["bile acid", "bile acids", "胆汁酸塩"] },
+        "はミセルを作る界面活性剤として消化・吸収を助け、",
+        { a: "コリパーゼ", alt: ["colipase", "コリパーゼ(colipase)"] },
+        "がリパーゼをTGに係留して胆汁酸による変性から守る。腸細胞では脂肪酸とモノアシルグリセロールからTGが再合成され、",
+        { a: "ApoB-48", alt: ["アポB-48", "アポリポタンパクB-48", "apoB-48", "ApoB48"] },
+        "をもつ",
+        { a: "カイロミクロン", alt: ["chylomicron", "キロミクロン", "カイロミクロン(chylomicron)"] },
+        "としてリンパ系へ分泌される（TGを約90%含む）。"
+      ]
+    },
+    {
+      id: "fa-2", chapter: "fa", title: "脂肪動員（リポリシス）とその制御",
+      source: "脂肪酸 §3",
+      explain: "絶食時のリポリシスはATGL(TG→DG)→HSL(DG→MG)→MGL(MG→グリセロール)の3段。エピネフリン/グルカゴン→PKAがペリリピン1をリン酸化してCGI-58を放し、遊離CGI-58がATGLを活性化。PKAはHSLも活性化する。",
+      segments: [
+        "絶食時、白色脂肪組織ではTGが分解される。まず主要なTG加水分解酵素",
+        { a: "ATGL", alt: ["PNPLA2", "脂肪組織トリグリセリドリパーゼ", "adipose triglyceride lipase"] },
+        "がTGをジアシルグリセロールにし、次に",
+        { a: "HSL", alt: ["ホルモン感受性リパーゼ", "hormone-sensitive lipase", "ホルモン感受性リパーゼ(HSL)"] },
+        "がモノアシルグリセロールに、最後に",
+        { a: "MGL", alt: ["モノアシルグリセロールリパーゼ", "monoacylglycerol lipase", "MG リパーゼ", "MGリパーゼ"] },
+        "がグリセロールへ分解する。ホルモン（エピネフリン・グルカゴン）で活性化した",
+        { a: "PKA", alt: ["プロテインキナーゼA", "protein kinase A", "cAMP依存性プロテインキナーゼ"] },
+        "は、脂肪滴タンパクの",
+        { a: "ペリリピン1", alt: ["Plin1", "ペリリピン", "perilipin 1", "ペリリピン-1", "PLIN1"] },
+        "をリン酸化して",
+        { a: "CGI-58", alt: ["CGI58", "ABHD5", "CGI-58(ABHD5)"] },
+        "を遊離させ、これがATGLを活性化する。"
+      ]
+    },
+    {
+      id: "fa-3", chapter: "fa", title: "脂肪酸の活性化とカルニチンシャトル",
+      source: "脂肪酸 §4",
+      explain: "脂肪酸はアルブミンで運ばれる(脳はBBBのため使えない)。ミトコンドリア外膜のアシルCoAシンテターゼで活性化(PPi分解で駆動)。長鎖アシルCoAはカルニチンシャトル(CPT-I→CACT→CPT-II)でマトリックスへ運ばれる。",
+      segments: [
+        "脂肪酸は血中で",
+        { a: "アルブミン", alt: ["albumin", "血清アルブミン"] },
+        "と結合して運ばれるが、",
+        { a: "脳", alt: ["脳組織", "brain", "中枢神経"] },
+        "は血液脳関門のため脂肪酸を燃料にできない。脂肪酸はミトコンドリア外膜の",
+        { a: "アシルCoAシンテターゼ", alt: ["ACS", "acyl-CoA synthetase", "脂肪酸チオキナーゼ", "アシルCoA合成酵素", "脂肪酸CoAリガーゼ"] },
+        "で活性化され（遊離した",
+        { a: "ピロリン酸", alt: ["PPi", "無機ピロリン酸", "pyrophosphate", "二リン酸"] },
+        "の加水分解で駆動）、長鎖アシルCoAは",
+        { a: "カルニチンシャトル", alt: ["carnitine shuttle", "カルニチン輸送系"] },
+        "でマトリックスへ運ばれる。外膜の",
+        { a: "CPT-I", alt: ["CPT1", "カルニチンパルミトイルトランスフェラーゼI", "carnitine palmitoyltransferase I", "CPTI"] },
+        "がアシルカルニチンを作り、トランスロカーゼ（CACT）を経て、内膜の",
+        { a: "CPT-II", alt: ["CPT2", "カルニチンパルミトイルトランスフェラーゼII", "carnitine palmitoyltransferase II", "CPTII"] },
+        "がアシルCoAに戻す。"
+      ]
+    },
+    {
+      id: "fa-4", chapter: "fa", title: "β酸化の4反応",
+      source: "脂肪酸 §5",
+      explain: "β酸化1ラウンドはアシルCoAデヒドロゲナーゼ(FADH2)→エノイルCoAヒドラターゼ(水和)→L-3-ヒドロキシアシルCoAデヒドロゲナーゼ(NADH)→チオラーゼ(アセチルCoAを遊離しC2短縮)の4反応。1回転でアセチルCoA・FADH2・NADHを各1分子生む。",
+      segments: [
+        "β酸化の1ラウンドはアセチルCoA・FADH₂・NADHを各1分子生む。第1反応の",
+        { a: "アシルCoAデヒドロゲナーゼ", alt: ["acyl-CoA dehydrogenase", "AD", "アシルCoA脱水素酵素"] },
+        "はFADを使ってアシルCoAをtrans-Δ²-エノイルCoAに酸化、第2反応の",
+        { a: "エノイルCoAヒドラターゼ", alt: ["enoyl-CoA hydratase", "エノイルCoA水和酵素", "クロトナーゼ"] },
+        "が水を付加、第3反応の",
+        { a: "L-3-ヒドロキシアシルCoAデヒドロゲナーゼ", alt: ["3-ヒドロキシアシルCoAデヒドロゲナーゼ", "3-hydroxyacyl-CoA dehydrogenase", "ヒドロキシアシルCoA脱水素酵素", "L-3-ヒドロキシアシルCoA脱水素酵素"] },
+        "がNAD⁺を使って3-ケトアシルCoAに酸化、第4反応の",
+        { a: "チオラーゼ", alt: ["thiolase", "β-ケトチオラーゼ", "3-ケトアシルCoAチオラーゼ", " β-ケトチオラーゼ"] },
+        "がCoAを使って",
+        { a: "アセチルCoA", alt: ["acetyl-CoA", "アセチルコエンザイムA", "acetyl CoA"] },
+        "と炭素2個短いアシルCoAに切る。"
+      ]
+    },
+    {
+      id: "fa-5", chapter: "fa", title: "アシルCoAデヒドロゲナーゼ・MTPとATP収支",
+      source: "脂肪酸 §5",
+      explain: "アシルCoAデヒドロゲナーゼは鎖長でVLCAD/LCAD/MCAD/SCAD。長鎖はMTP(8サブユニット;HADHA=ヒドラターゼ+ヒドロキシアシルCoA DH、HADHB=チオラーゼ)が担う。パルミチン酸(C16)完全酸化は正味約129 ATP(活性化で2消費)。",
+      segments: [
+        "アシルCoAデヒドロゲナーゼは鎖長で複数あり、C6・C8に最も活性が高いのは",
+        { a: "MCAD", alt: ["中鎖アシルCoAデヒドロゲナーゼ", "medium-chain acyl-CoA dehydrogenase"] },
+        "である。長鎖脂肪酸のβ酸化を担う",
+        { a: "MTP", alt: ["ミトコンドリア三機能性タンパク", "mitochondrial trifunctional protein", "三機能性タンパク", "三機能性酵素"] },
+        "は、ヒドラターゼとヒドロキシアシルCoAデヒドロゲナーゼをもつ",
+        { a: "HADHA", alt: ["HADHA(α)", "α サブユニット", "αサブユニット"] },
+        "と、チオラーゼをもつ",
+        { a: "HADHB", alt: ["HADHB(β)", "β サブユニット", "βサブユニット"] },
+        "からなる。パルミチン酸（C16）の完全酸化では8アセチルCoA・7FADH₂・7NADHが生じ、正味約",
+        { a: "129", alt: ["129mol", "約129", "129ATP"] },
+        "molのATPが得られる。"
+      ]
+    },
+    {
+      id: "fa-6", chapter: "fa", title: "奇数鎖脂肪酸とビタミンB12",
+      source: "脂肪酸 §6",
+      explain: "奇数鎖FAは最終段階でプロピオニルCoAを生じ、プロピオニルCoAカルボキシラーゼ(ビオチン)→メチルマロニルCoA→(B12のメチルマロニルCoAムターゼ)→スクシニルCoAへ。B12は内因子と結合し回腸で吸収され、欠乏で悪性貧血(葉酸連関・神経障害)。",
+      segments: [
+        "奇数鎖脂肪酸はβ酸化の最終段階で、アセチルCoAではなく",
+        { a: "プロピオニルCoA", alt: ["propionyl-CoA", "プロピオニルコエンザイムA", "プロピオン酸CoA"] },
+        "を生じる。これはプロピオニルCoAカルボキシラーゼ（補因子",
+        { a: "ビオチン", alt: ["biotin", "ビタミンB7", "ビタミンH"] },
+        "）でメチルマロニルCoAになり、",
+        { a: "ビタミンB12", alt: ["B12", "vitamin B12", "コバラミン", "cobalamin", "ビタミンB₁₂"] },
+        "を補酵素とするメチルマロニルCoAムターゼで",
+        { a: "スクシニルCoA", alt: ["succinyl-CoA", "サクシニルCoA", "コハク酸CoA"] },
+        "に変換される。ビタミンB12は胃壁細胞由来の",
+        { a: "内因子", alt: ["intrinsic factor", "内因子(IF)", "キャッスル内因子"] },
+        "と結合して回腸で吸収され、欠乏すると",
+        { a: "悪性貧血", alt: ["pernicious anemia", "巨赤芽球性貧血", "悪性貧血(pernicious anemia)"] },
+        "をきたす。"
+      ]
+    },
+    {
+      id: "fa-7", chapter: "fa", title: "ペルオキシソームでのβ酸化・α酸化",
+      source: "脂肪酸 §7",
+      explain: "C>22の超長鎖FAと分枝鎖FAはペルオキシソームで酸化。AOXが電子を直接O2に渡しH2O2を生じる(カタラーゼが処理)。輸送はABCDタンパクで、ABCD1(ALDP)変異でX連鎖性副腎白質ジストロフィー。フィタン酸はまずα酸化を受け、障害でレフサム病。",
+      segments: [
+        "炭素数が22を超える",
+        { a: "超長鎖脂肪酸", alt: ["VLCFA", "極長鎖脂肪酸", "超長鎖FA", "very long chain fatty acid"] },
+        "や分枝鎖脂肪酸は、",
+        { a: "ペルオキシソーム", alt: ["peroxisome", "ペルオキシゾーム"] },
+        "で酸化される。初発反応のアシルCoAオキシダーゼは電子を直接酸素に渡して",
+        { a: "過酸化水素", alt: ["H2O2", "hydrogen peroxide", "H₂O₂", "過酸化水素(H2O2)"] },
+        "を生じ、カタラーゼが処理する。ペルオキシソームへの脂肪酸輸送を担う",
+        { a: "ABCD1", alt: ["ALDP", "ABCD1(ALDP)", "副腎白質ジストロフィータンパク"] },
+        "の変異は",
+        { a: "副腎白質ジストロフィー", alt: ["X-ALD", "X連鎖性副腎白質ジストロフィー", "adrenoleukodystrophy", "副腎白質ジストロフィー症"] },
+        "を起こす。またC3にメチル基をもつフィタン酸はまず",
+        { a: "α酸化", alt: ["α-oxidation", "アルファ酸化", "α-酸化", "アルファ酸化(α酸化)"] },
+        "を受け、その障害でレフサム病を生じる。"
+      ]
+    },
+    {
+      id: "fa-8", chapter: "fa", title: "ケトン体の生成と利用",
+      source: "脂肪酸 §8",
+      explain: "ケトン体は肝のミトコンドリアでチオラーゼ→HMG-CoAシンターゼ→HMG-CoAリアーゼ→β-ヒドロキシ酪酸DHにより作られる。肝はチオフォラーゼ(SCOT)を欠くため自らは利用できず、脳・心・腎が飢餓時に利用する。1型糖尿病でケトアシドーシス。",
+      segments: [
+        "ケトン体はアセチルCoAから、肝の",
+        { a: "ミトコンドリア", alt: ["mitochondria", "ミトコンドリアマトリックス", "マトリックス"] },
+        "で作られる。2分子のアセチルCoAが",
+        { a: "チオラーゼ", alt: ["thiolase", "アセトアセチルCoAチオラーゼ", "β-ケトチオラーゼ"] },
+        "でアセトアセチルCoAになり、",
+        { a: "HMG-CoAシンターゼ", alt: ["HMG-CoA合成酵素", "HMG-CoA synthase", "ヒドロキシメチルグルタリルCoAシンターゼ"] },
+        "を経てHMG-CoAに、",
+        { a: "HMG-CoAリアーゼ", alt: ["HMG-CoA lyase", "HMG-CoA開裂酵素", "ヒドロキシメチルグルタリルCoAリアーゼ"] },
+        "が",
+        { a: "アセト酢酸", alt: ["アセトアセテート", "acetoacetate", "アセト酢酸(アセトアセテート)"] },
+        "を遊離する。末梢はケトン体を利用するが、",
+        { a: "肝臓", alt: ["肝", "liver", "肝実質"] },
+        "はチオフォラーゼ（SCOT）を欠くため自らは利用できない。長期飢餓では",
+        { a: "脳", alt: ["脳組織", "brain", "中枢神経"] },
+        "がケトン体を主要な燃料にする。"
+      ]
+    },
+    {
+      id: "fa-9", chapter: "fa", title: "脂肪酸の合成",
+      source: "脂肪酸 §9",
+      explain: "脂肪酸合成は細胞質で、律速のACC(ビオチン)がマロニルCoAを作り、中間体はACP(ホスホパンテテイン)に結合。7ドメインのFASN(ホモ二量体)が縮合(−CO2)→還元(NADPH)→脱水→還元(NADPH)を7回繰り返してパルミチン酸(C16)を作る。",
+      segments: [
+        "脂肪酸合成は",
+        { a: "細胞質", alt: ["細胞質ゾル", "サイトゾル", "cytosol", "細胞質基質"] },
+        "で行われ、律速酵素の",
+        { a: "アセチルCoAカルボキシラーゼ", alt: ["ACC", "acetyl-CoA carboxylase", "アセチルCoAカルボキシラーゼ(ACC)"] },
+        "（ビオチン依存）が",
+        { a: "マロニルCoA", alt: ["malonyl-CoA", "マロニルコエンザイムA", "マロニル-CoA"] },
+        "を作る。中間体は運搬体である",
+        { a: "ACP", alt: ["アシルキャリアタンパク", "acyl carrier protein", "アシルキャリアータンパク質"] },
+        "に結合し、7つの触媒ドメインをもつ多機能酵素",
+        { a: "FASN", alt: ["脂肪酸合成酵素", "FAS", "fatty acid synthase", "脂肪酸シンターゼ"] },
+        "が縮合→還元→脱水→還元を繰り返す。還元力には",
+        { a: "NADPH", alt: ["還元型NADP"] },
+        "が使われ、7サイクル後に炭素数16の",
+        { a: "パルミチン酸", alt: ["palmitate", "palmitic acid", "パルミテート", "パルミチン酸(C16)"] },
+        "を生じる。"
+      ]
+    },
+    {
+      id: "fa-10", chapter: "fa", title: "脂肪酸合成のNADPH供給とACC調節",
+      source: "脂肪酸 §10–11",
+      explain: "合成のアセチル基はクエン酸シャトル(ATP-クエン酸リアーゼ)で細胞質へ運ばれ、その過程＋ペントースリン酸経路がNADPHを供給。ACCはAMPK/PKAのSer79リン酸化で不活性、クエン酸で活性・パルミチンで阻害。ACC1=合成(肝・脂肪)、ACC2=マロニルCoAでCPT-I阻害し酸化抑制(心・筋)。",
+      segments: [
+        "合成のアセチル基は",
+        { a: "クエン酸", alt: ["citrate", "citric acid", "クエン酸(シャトル)"] },
+        "の形でミトコンドリアから細胞質へ運ばれ、ATP-クエン酸リアーゼで再びアセチルCoAになる。この過程と",
+        { a: "ペントースリン酸経路", alt: ["PPP", "pentose phosphate pathway", "ペントースリン酸回路"] },
+        "がNADPHを供給する。ACCは",
+        { a: "AMPK", alt: ["AMP活性化キナーゼ", "AMP活性化プロテインキナーゼ", "AMP-activated protein kinase"] },
+        "やPKAによるSer79の",
+        { a: "リン酸化", alt: ["phosphorylation", "燐酸化", "リン酸化(不活性化)"] },
+        "で不活性化され、クエン酸で活性化・パルミチン酸で阻害される。組織別には、肝・脂肪の",
+        { a: "ACC1", alt: ["α-ACC", "アセチルCoAカルボキシラーゼ1", "ACC-1"] },
+        "が合成を担い、心・筋の",
+        { a: "ACC2", alt: ["β-ACC", "アセチルCoAカルボキシラーゼ2", "ACC-2"] },
+        "はマロニルCoAで",
+        { a: "CPT-I", alt: ["CPT1", "カルニチンパルミトイルトランスフェラーゼI", "CPTI"] },
+        "を阻害して脂肪酸酸化を抑える。"
+      ]
+    },
+
+    /* =========================================================
+     * 全反応リコール（経路の全酵素・生成物を順に答える）
+     * ========================================================= */
+    {
+      id: "recall-glyco", chapter: "recall", title: "解糖系10反応の全酵素と生成物",
+      source: "解糖 全反応",
+      explain: "不可逆3反応はヘキソキナーゼ(第1)・PFK-1(第3)・ピルビン酸キナーゼ(第10)。第6のGAPDHが唯一の酸化(NADH生成)、第7 PGKと第10 PKが基質レベルのリン酸化でATPを作る。正味2ATP・2NADH・2ピルビン酸。",
+      segments: [
+        "解糖系（細胞質・10反応）を順に答える。グルコース →①",
+        { a: "ヘキソキナーゼ", alt: ["hexokinase", "HK", "グルコキナーゼ", "ヘキソキナーゼ/グルコキナーゼ"] },
+        "→ ②",
+        { a: "グルコース6-リン酸", alt: ["G6P", "グルコース-6-リン酸", "glucose 6-phosphate", "グルコース6リン酸"] },
+        " →③",
+        { a: "グルコース6-リン酸イソメラーゼ", alt: ["PGI", "GPI", "ホスホグルコースイソメラーゼ", "glucose-6-phosphate isomerase", "ホスホヘキソースイソメラーゼ"] },
+        "→ ④",
+        { a: "フルクトース6-リン酸", alt: ["F6P", "フルクトース-6-リン酸", "fructose 6-phosphate", "フルクトース6リン酸"] },
+        " →⑤",
+        { a: "PFK-1", alt: ["ホスホフルクトキナーゼ-1", "phosphofructokinase-1", "ホスホフルクトキナーゼ", "PFK1"] },
+        "→ ⑥",
+        { a: "フルクトース1,6-ビスリン酸", alt: ["F1,6BP", "FBP", "フルクトース-1,6-ビスリン酸", "fructose 1,6-bisphosphate", "F16BP"] },
+        " →⑦",
+        { a: "アルドラーゼ", alt: ["aldolase", "フルクトースビスリン酸アルドラーゼ"] },
+        "→ ⑧DHAP＋⑨",
+        { a: "GAP", alt: ["グリセルアルデヒド3-リン酸", "glyceraldehyde 3-phosphate", "G3P", "グリセルアルデヒド-3-リン酸"] },
+        "（DHAPは⑩",
+        { a: "トリオースリン酸イソメラーゼ", alt: ["TIM", "TPI", "triose phosphate isomerase", "トリオースホスファートイソメラーゼ"] },
+        "でGAPへ）。GAP →⑪",
+        { a: "GAPDH", alt: ["グリセルアルデヒド3-リン酸デヒドロゲナーゼ", "glyceraldehyde 3-phosphate dehydrogenase", "グリセルアルデヒド-3-リン酸脱水素酵素"] },
+        "→ ⑫",
+        { a: "1,3-ビスホスホグリセリン酸", alt: ["1,3-BPG", "1,3-ビスホスホグリセレート", "1,3-bisphosphoglycerate", "1,3BPG"] },
+        " →⑬",
+        { a: "ホスホグリセリン酸キナーゼ", alt: ["PGK", "phosphoglycerate kinase"] },
+        "→ ⑭",
+        { a: "3-ホスホグリセリン酸", alt: ["3-PG", "3PG", "3-phosphoglycerate", "3-ホスホグリセレート"] },
+        " →⑮",
+        { a: "ホスホグリセリン酸ムターゼ", alt: ["PGM", "phosphoglycerate mutase", "ホスホグリセレートムターゼ"] },
+        "→ ⑯",
+        { a: "2-ホスホグリセリン酸", alt: ["2-PG", "2PG", "2-phosphoglycerate", "2-ホスホグリセレート"] },
+        " →⑰",
+        { a: "エノラーゼ", alt: ["enolase", "ホスホピルビン酸ヒドラターゼ"] },
+        "→ ⑱",
+        { a: "PEP", alt: ["ホスホエノールピルビン酸", "phosphoenolpyruvate"] },
+        " →⑲",
+        { a: "ピルビン酸キナーゼ", alt: ["PK", "pyruvate kinase"] },
+        "→ ⑳",
+        { a: "ピルビン酸", alt: ["pyruvate", "ピルビン酸塩", "ピルベート"] },
+        "。"
+      ]
+    },
+    {
+      id: "recall-tca", chapter: "recall", title: "クエン酸回路8反応の全酵素と生成物",
+      source: "クエン酸回路 全反応",
+      explain: "不可逆(調節)はクエン酸シンターゼ・イソクエン酸デヒドロゲナーゼ・α-ケトグルタル酸デヒドロゲナーゼ。NADHはイソクエン酸/α-KG/リンゴ酸の各脱水素酵素、FADH2はコハク酸デヒドロゲナーゼ(複合体II)、GTPはスクシニルCoAシンテターゼ(唯一の基質レベルのリン酸化)。",
+      segments: [
+        "クエン酸回路（8反応）を順に答える。アセチルCoA＋オキサロ酢酸 →①",
+        { a: "クエン酸シンターゼ", alt: ["citrate synthase", "クエン酸合成酵素", "シトラートシンターゼ"] },
+        "→ ②",
+        { a: "クエン酸", alt: ["citrate", "シトレート", "クエン酸(citrate)"] },
+        " →③",
+        { a: "アコニターゼ", alt: ["aconitase", "アコニット酸ヒドラターゼ"] },
+        "→ イソクエン酸 →④",
+        { a: "イソクエン酸デヒドロゲナーゼ", alt: ["IDH", "isocitrate dehydrogenase", "イソクエン酸脱水素酵素"] },
+        "→ ⑤",
+        { a: "α-ケトグルタル酸", alt: ["α-KG", "2-オキソグルタル酸", "alpha-ketoglutarate", "αケトグルタル酸", "2-oxoglutarate"] },
+        "（NADH・CO₂）→⑥",
+        { a: "α-ケトグルタル酸デヒドロゲナーゼ", alt: ["α-KGDH", "alpha-ketoglutarate dehydrogenase", "α-ケトグルタル酸脱水素酵素", "2-オキソグルタル酸脱水素酵素"] },
+        "→ ⑦",
+        { a: "スクシニルCoA", alt: ["succinyl-CoA", "サクシニルCoA", "コハク酸CoA"] },
+        "（NADH・CO₂）→⑧",
+        { a: "スクシニルCoAシンテターゼ", alt: ["スクシニルCoA合成酵素", "succinyl-CoA synthetase", "サクシニルCoAシンテターゼ", "スクシニルCoAリガーゼ"] },
+        "→ コハク酸（GTP）→⑨",
+        { a: "コハク酸デヒドロゲナーゼ", alt: ["SDH", "succinate dehydrogenase", "コハク酸脱水素酵素", "複合体II"] },
+        "→ ⑩",
+        { a: "フマル酸", alt: ["fumarate", "フマレート", "フマル酸塩"] },
+        "（FADH₂）→⑪",
+        { a: "フマラーゼ", alt: ["fumarase", "フマル酸ヒドラターゼ"] },
+        "→ ⑫",
+        { a: "リンゴ酸", alt: ["malate", "マレート", "リンゴ酸塩"] },
+        " →⑬",
+        { a: "リンゴ酸デヒドロゲナーゼ", alt: ["MDH", "malate dehydrogenase", "リンゴ酸脱水素酵素"] },
+        "→ オキサロ酢酸（NADH）。"
+      ]
+    },
+    {
+      id: "recall-box", chapter: "recall", title: "β酸化1ラウンドの全酵素と生成物",
+      source: "脂肪酸 β酸化 全反応",
+      explain: "1ラウンドで炭素2個が短くなり、アセチルCoA・FADH2・NADHを各1分子生む。酸化(FAD)→水和→酸化(NAD+)→チオリシスの順。長鎖はMTP、鎖長別にVLCAD/LCAD/MCAD/SCAD。",
+      segments: [
+        "β酸化の1ラウンド（4反応）を順に答える。アシルCoA →①",
+        { a: "アシルCoAデヒドロゲナーゼ", alt: ["acyl-CoA dehydrogenase", "AD", "アシルCoA脱水素酵素"] },
+        "→ trans-Δ²-エノイルCoA（補酵素②",
+        { a: "FAD", alt: ["フラビンアデニンジヌクレオチド", "FAD→FADH2"] },
+        "）→③",
+        { a: "エノイルCoAヒドラターゼ", alt: ["enoyl-CoA hydratase", "クロトナーゼ", "エノイルCoA水和酵素"] },
+        "→ ④",
+        { a: "L-3-ヒドロキシアシルCoA", alt: ["3-ヒドロキシアシルCoA", "L-3-hydroxyacyl-CoA", "L-β-ヒドロキシアシルCoA"] },
+        " →⑤",
+        { a: "L-3-ヒドロキシアシルCoAデヒドロゲナーゼ", alt: ["3-ヒドロキシアシルCoAデヒドロゲナーゼ", "3-hydroxyacyl-CoA dehydrogenase", "ヒドロキシアシルCoA脱水素酵素"] },
+        "→ 3-ケトアシルCoA（補酵素⑥",
+        { a: "NAD+", alt: ["NAD⁺", "NAD", "酸化型NAD"] },
+        "）→⑦",
+        { a: "チオラーゼ", alt: ["thiolase", "β-ケトチオラーゼ", "3-ケトアシルCoAチオラーゼ"] },
+        "→ ⑧",
+        { a: "アセチルCoA", alt: ["acetyl-CoA", "アセチルコエンザイムA", "acetyl CoA"] },
+        "＋炭素2個短いアシルCoA。"
+      ]
+    },
+    {
+      id: "recall-ketone", chapter: "recall", title: "ケトン体生成の全酵素と生成物",
+      source: "脂肪酸 ケトン体 全反応",
+      explain: "肝ミトコンドリアで、2アセチルCoA→(チオラーゼ)アセトアセチルCoA→(HMG-CoAシンターゼ)HMG-CoA→(HMG-CoAリアーゼ)アセト酢酸→(β-ヒドロキシ酪酸DH)D-3-ヒドロキシ酪酸。少量は自然脱炭酸でアセトンへ。",
+      segments: [
+        "ケトン体生成（肝ミトコンドリア）を順に答える。2アセチルCoA →①",
+        { a: "チオラーゼ", alt: ["thiolase", "アセトアセチルCoAチオラーゼ", "β-ケトチオラーゼ"] },
+        "→ ②",
+        { a: "アセトアセチルCoA", alt: ["acetoacetyl-CoA", "アセトアセチルコエンザイムA"] },
+        " →（＋アセチルCoA）③",
+        { a: "HMG-CoAシンターゼ", alt: ["HMG-CoA合成酵素", "HMG-CoA synthase", "ヒドロキシメチルグルタリルCoAシンターゼ"] },
+        "→ ④",
+        { a: "HMG-CoA", alt: ["3-ヒドロキシ-3-メチルグルタリルCoA", "ヒドロキシメチルグルタリルCoA", "HMGCoA"] },
+        " →⑤",
+        { a: "HMG-CoAリアーゼ", alt: ["HMG-CoA lyase", "HMG-CoA開裂酵素", "ヒドロキシメチルグルタリルCoAリアーゼ"] },
+        "→ ⑥",
+        { a: "アセト酢酸", alt: ["アセトアセテート", "acetoacetate"] },
+        " →⑦",
+        { a: "β-ヒドロキシ酪酸デヒドロゲナーゼ", alt: ["β-ヒドロキシ酪酸脱水素酵素", "β-hydroxybutyrate dehydrogenase", "3-ヒドロキシ酪酸デヒドロゲナーゼ", "ヒドロキシ酪酸脱水素酵素"] },
+        "→ ⑧",
+        { a: "D-3-ヒドロキシ酪酸", alt: ["3-ヒドロキシ酪酸", "β-ヒドロキシ酪酸", "D-β-ヒドロキシ酪酸", "3-hydroxybutyrate", "D-3-ヒドロキシ酪酸(β-OHB)"] },
+        "。"
+      ]
+    },
+    {
+      id: "recall-fasyn", chapter: "recall", title: "脂肪酸合成サイクルの全酵素",
+      source: "脂肪酸 合成 全反応",
+      explain: "FASNの伸長サイクル:縮合(β-ケトアシルACPシンターゼ/KS、CO2脱離)→還元(KR、NADPH)→脱水(DH)→還元(ER、NADPH)。7サイクル後にTEがパルミチン酸を遊離。C2供与体はマロニルACP、還元剤はNADPH。",
+      segments: [
+        "脂肪酸合成の伸長サイクル（FASN）を順に答える。アセチルACP＋マロニルACP →①",
+        { a: "β-ケトアシルACPシンターゼ", alt: ["KS", "縮合酵素", "β-ketoacyl-ACP synthase", "ケトアシルACPシンターゼ", "condensing enzyme"] },
+        "（②",
+        { a: "CO2", alt: ["CO₂", "二酸化炭素", "carbon dioxide"] },
+        "が脱離）→ アセトアセチルACP →③",
+        { a: "β-ケトアシルACPレダクターゼ", alt: ["KR", "β-ketoacyl-ACP reductase", "ケトアシルACPレダクターゼ", "β-ケトアシルACP還元酵素"] },
+        "（還元剤④",
+        { a: "NADPH", alt: ["還元型NADP"] },
+        "）→ D-β-ヒドロキシブチリルACP →⑤",
+        { a: "β-ヒドロキシアシルACPデヒドラターゼ", alt: ["DH", "デヒドラターゼ", "β-hydroxyacyl-ACP dehydratase", "ヒドロキシアシルACP脱水酵素"] },
+        "→ ブテノイルACP →⑥",
+        { a: "エノイルACPレダクターゼ", alt: ["ER", "enoyl-ACP reductase", "エノイルACP還元酵素"] },
+        "（NADPH）→ ブチリルACP。7サイクル後、⑦",
+        { a: "パルミトイルチオエステラーゼ", alt: ["TE", "チオエステラーゼ", "palmitoyl thioesterase", "パルミトイルチオエステラーゼ(TE)"] },
+        "が⑧",
+        { a: "パルミチン酸", alt: ["palmitate", "palmitic acid", "パルミチン酸(C16)"] },
+        "を遊離する。"
       ]
     }
   ]
