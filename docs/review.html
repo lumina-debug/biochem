@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ja" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>生化学 要点まとめ（クリックで穴埋め）</title>
+  <meta name="description" content="生化学の要点を穴抜きにした暗記用リビュー。クリックで答えを表示・非表示できます。" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ===== リビュー（穴埋め暗記）専用スタイル ===== */
+    .review-intro { margin: 4px 0 18px; }
+    .review-controls {
+      position: sticky; top: 64px; z-index: 10;
+      display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
+      padding: 10px 0; margin-bottom: 8px;
+      background: color-mix(in srgb, var(--bg) 90%, transparent);
+      backdrop-filter: blur(6px);
+    }
+    .review-controls .hint { color: var(--text-faint); font-size: .86rem; margin-left: auto; }
+    .chapter-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin: 6px 0 18px; }
+    .rv-sec { margin-bottom: 16px; }
+    .rv-sec .card-head { align-items: center; }
+    .rv-sec h2 {
+      font-size: 1.06rem; margin: 0; display: flex; align-items: center; gap: 8px;
+    }
+    .rv-sec .sec-no {
+      flex: none; width: 26px; height: 26px; border-radius: 8px;
+      display: inline-flex; align-items: center; justify-content: center;
+      background: var(--accent-soft); color: var(--accent-ink);
+      font-size: .82rem; font-weight: 700;
+    }
+    .rv-list { list-style: none; margin: 12px 0 0; padding: 0; }
+    .rv-list li {
+      position: relative; padding: 8px 4px 8px 22px; line-height: 1.9;
+      border-top: 1px solid var(--border);
+    }
+    .rv-list li:first-child { border-top: none; }
+    .rv-list li::before {
+      content: "▸"; position: absolute; left: 2px; top: 8px; color: var(--text-faint);
+    }
+    /* 穴（クローズ） */
+    .cz {
+      display: inline-block; position: relative; cursor: pointer;
+      min-width: 2.2em; padding: 0 .35em; margin: 0 1px;
+      border-radius: 6px; border: 1px dashed var(--accent);
+      background: var(--accent-soft); color: transparent;
+      text-align: center; user-select: none; vertical-align: baseline;
+      transition: background .12s, color .12s, border-color .12s;
+    }
+    .cz::after { content: "？"; color: var(--accent); font-weight: 700; }
+    .cz .cz-a { visibility: hidden; }
+    .cz.show {
+      color: var(--accent-ink); border-style: solid;
+      border-color: color-mix(in srgb, var(--accent) 40%, var(--border));
+      background: color-mix(in srgb, var(--accent-soft) 70%, var(--bg-elev));
+      cursor: pointer; font-weight: 600;
+    }
+    .cz.show::after { content: none; }
+    .cz.show .cz-a { visibility: visible; }
+    .cz:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .rv-note { color: var(--text-soft); font-size: .9em; }
+    @media (max-width: 640px) {
+      .review-controls { top: 58px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand">
+        <span class="brand-mark">🧬</span>
+        <div class="brand-text">
+          <span class="brand-title">要点まとめ（クリックで穴埋め）</span>
+          <span class="brand-sub">要点を穴抜きに → クリックで答えを表示</span>
+        </div>
+      </div>
+      <button id="btn-theme" class="icon-btn" type="button" title="ライト/ダーク切替" aria-label="テーマ切替">◐</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="quiz-topbar">
+      <a class="text-btn" href="index.html">← 演習ページへ</a>
+    </div>
+
+    <div class="review-intro">
+      <h1 style="margin:.2em 0;">要点リビュー</h1>
+      <p>各講義まとめの<strong>要点を穴抜き</strong>にした暗記用ページです。青い <span class="cz show" style="cursor:default"><span class="cz-a">穴</span></span> を<strong>クリックすると答えが表示</strong>され、もう一度クリックで隠れます。まとめを読む前の確認や、試験前の総復習にどうぞ。</p>
+    </div>
+
+    <div id="chapter-tabs" class="chapter-tabs"></div>
+
+    <div class="review-controls">
+      <button id="btn-reveal" class="mode-btn" type="button">すべて表示</button>
+      <button id="btn-hide" class="mode-btn" type="button">すべて隠す</button>
+      <span class="hint">クリックで表示／再クリックで非表示</span>
+    </div>
+
+    <div id="review-body"></div>
+
+    <p class="disclaimer">出典：本リポジトリ内の各講義まとめ（慶應義塾大学 医学部 涌井昌俊 准教授 講義に基づく学習ノート）。学習用の補助教材です。</p>
+  </main>
+
+  <script src="review-data.js"></script>
+  <script>
+    (function () {
+      "use strict";
+      // テーマ（演習ページと共有）
+      try {
+        var saved = localStorage.getItem("biochem-theme");
+        if (saved) document.documentElement.setAttribute("data-theme", saved);
+      } catch (e) {}
+      var root = document.documentElement;
+      document.getElementById("btn-theme").addEventListener("click", function () {
+        var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+        root.setAttribute("data-theme", next);
+        try { localStorage.setItem("biochem-theme", next); } catch (e) {}
+      });
+
+      var DATA = window.REVIEW_DATA || [];
+      var body = document.getElementById("review-body");
+      var tabs = document.getElementById("chapter-tabs");
+      var current = 0;
+
+      function el(tag, cls, txt) {
+        var n = document.createElement(tag);
+        if (cls) n.className = cls;
+        if (txt != null) n.textContent = txt;
+        return n;
+      }
+
+      // 1行（parts: 文字列 or {b:"答え"}）を描画
+      function renderLine(parts) {
+        var li = document.createElement("li");
+        parts.forEach(function (p) {
+          if (typeof p === "string") {
+            li.appendChild(document.createTextNode(p));
+          } else if (p && p.b != null) {
+            var cz = document.createElement("span");
+            cz.className = "cz";
+            cz.setAttribute("role", "button");
+            cz.setAttribute("tabindex", "0");
+            cz.setAttribute("aria-label", "穴。クリックで答えを表示");
+            var a = document.createElement("span");
+            a.className = "cz-a";
+            a.textContent = p.b;
+            cz.appendChild(a);
+            cz.addEventListener("click", function () { cz.classList.toggle("show"); });
+            cz.addEventListener("keydown", function (ev) {
+              if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); cz.classList.toggle("show"); }
+            });
+            li.appendChild(cz);
+          } else if (p && p.note != null) {
+            var s = el("span", "rv-note", p.note);
+            li.appendChild(s);
+          }
+        });
+        return li;
+      }
+
+      function renderChapter(ci) {
+        current = ci;
+        body.innerHTML = "";
+        var ch = DATA[ci];
+        if (!ch) return;
+        ch.sections.forEach(function (sec, i) {
+          var card = el("article", "card rv-sec");
+          var head = el("div", "card-head");
+          var h2 = el("h2");
+          h2.appendChild(el("span", "sec-no", String(i + 1)));
+          h2.appendChild(document.createTextNode(sec.title));
+          head.appendChild(h2);
+          card.appendChild(head);
+          var ul = el("ul", "rv-list");
+          sec.lines.forEach(function (parts) { ul.appendChild(renderLine(parts)); });
+          card.appendChild(ul);
+          body.appendChild(card);
+        });
+        // タブ選択状態
+        Array.prototype.forEach.call(tabs.children, function (b, i) {
+          b.classList.toggle("is-active", i === ci);
+          b.setAttribute("aria-pressed", i === ci ? "true" : "false");
+        });
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      // 章タブ
+      DATA.forEach(function (ch, i) {
+        var b = el("button", "mode-btn", ch.chapter);
+        b.type = "button";
+        b.addEventListener("click", function () { renderChapter(i); });
+        tabs.appendChild(b);
+      });
+
+      document.getElementById("btn-reveal").addEventListener("click", function () {
+        Array.prototype.forEach.call(body.querySelectorAll(".cz"), function (c) { c.classList.add("show"); });
+      });
+      document.getElementById("btn-hide").addEventListener("click", function () {
+        Array.prototype.forEach.call(body.querySelectorAll(".cz"), function (c) { c.classList.remove("show"); });
+      });
+
+      renderChapter(0);
+    })();
+  </script>
+</body>
+</html>
