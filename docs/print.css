@@ -1,0 +1,270 @@
+/* ===========================================================
+   生化学 印刷用資料 共通スタイル（A4 / 両面印刷対応）
+   =========================================================== */
+
+@page {
+  size: A4 portrait;
+  margin: 16mm 14mm 16mm 14mm;
+}
+
+:root {
+  --ink:        #1a1a1a;
+  --ink-soft:   #444;
+  --ink-faint:  #6b6b6b;
+  --rule:       #c9c9c9;
+  --rule-soft:  #e3e3e3;
+  --accent:     #1d5c8f;   /* 見出し・問題 */
+  --accent-bg:  #eaf2f9;
+  --ans:        #0b6b45;   /* 解答 */
+  --ans-bg:     #e9f5ef;
+  --pre:        #8a5a00;   /* 前提知識 */
+  --pre-bg:     #fdf4e3;
+  --warn:       #9b2d2d;
+  --warn-bg:    #fbeded;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+body {
+  margin: 0 auto;
+  padding: 16mm 14mm;
+  max-width: 182mm;              /* A4(210mm) − 左右余白 */
+  background: #fff;
+  color: var(--ink);
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho",
+               "Noto Serif JP", "Source Han Serif JP", "IPAPMincho", "IPAMincho", "MS PMincho", serif;
+  font-size: 9.7pt;
+  line-height: 1.72;
+  text-align: justify;
+  font-feature-settings: "palt" 1;
+}
+
+/* ---------- 表題 ---------- */
+.doc-title {
+  border-bottom: 2.5pt solid var(--accent);
+  padding-bottom: 6pt;
+  margin: 0 0 4pt;
+}
+.doc-title h1 {
+  font-size: 17pt;
+  line-height: 1.35;
+  margin: 0 0 3pt;
+  letter-spacing: .02em;
+}
+.doc-title .sub { font-size: 9pt; color: var(--ink-faint); margin: 0; }
+.doc-lead {
+  font-size: 8.9pt;
+  color: var(--ink-soft);
+  background: #f7f7f7;
+  border-left: 3pt solid var(--rule);
+  padding: 7pt 10pt;
+  margin: 10pt 0 14pt;
+  line-height: 1.62;
+}
+.doc-lead p { margin: 0 0 5pt; }
+.doc-lead p:last-child { margin-bottom: 0; }
+
+/* ---------- 目次 ---------- */
+.toc {
+  border: .8pt solid var(--rule);
+  padding: 9pt 12pt;
+  margin: 0 0 14pt;
+  font-size: 9pt;
+}
+.toc h2 { font-size: 10pt; margin: 0 0 5pt; border: none; padding: 0; }
+.toc ol { margin: 0; padding-left: 1.5em; }
+.toc li { margin: 1pt 0; }
+.toc a { color: var(--ink); text-decoration: none; }
+
+/* ---------- 見出し ---------- */
+h2.year {
+  font-size: 13.5pt;
+  margin: 0 0 10pt;
+  padding: 5pt 9pt;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 2pt;
+  letter-spacing: .04em;
+}
+h2.sec {
+  font-size: 12pt;
+  margin: 16pt 0 8pt;
+  padding: 3pt 0 3pt 8pt;
+  border-left: 4pt solid var(--accent);
+  color: var(--accent);
+}
+h3.q {
+  font-size: 10.6pt;
+  margin: 13pt 0 6pt;
+  padding-bottom: 2pt;
+  border-bottom: 1pt solid var(--rule);
+  color: var(--accent);
+}
+h4 {
+  font-size: 9.8pt;
+  margin: 9pt 0 3pt;
+  color: var(--ink);
+}
+
+p { margin: 0 0 5pt; }
+ul, ol { margin: 3pt 0 6pt; padding-left: 1.55em; }
+li { margin: 1.5pt 0; }
+strong { font-weight: 700; }
+em { font-style: normal; background: linear-gradient(transparent 62%, #ffe9a8 62%); }
+
+/* ---------- ブロック ---------- */
+.block { margin: 0 0 9pt; page-break-inside: auto; }
+
+.q-body, .a-body, .x-body, .pre-body, .note {
+  padding: 7pt 10pt;
+  border-radius: 2pt;
+  margin: 0 0 7pt;
+}
+.q-body { background: var(--accent-bg); border: .8pt solid #bcd6e8; }
+.a-body { background: var(--ans-bg);    border-left: 3pt solid var(--ans); }
+.pre-body { background: var(--pre-bg);  border-left: 3pt solid var(--pre); }
+.x-body { background: #fafafa;          border-left: 3pt solid var(--rule); }
+.note   { background: var(--warn-bg);   border-left: 3pt solid var(--warn); font-size: 8.9pt; }
+
+.tag {
+  display: inline-block;
+  font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", "IPAPGothic", "IPAGothic", sans-serif;
+  font-size: 7.8pt;
+  font-weight: 700;
+  letter-spacing: .08em;
+  padding: 1pt 6pt;
+  margin: 0 6pt 3pt 0;
+  border-radius: 2pt;
+  vertical-align: 2pt;
+}
+.tag.q   { background: var(--accent); color: #fff; }
+.tag.a   { background: var(--ans);    color: #fff; }
+.tag.pre { background: var(--pre);    color: #fff; }
+.tag.x   { background: #6b6b6b;       color: #fff; }
+.tag.w   { background: var(--warn);   color: #fff; }
+
+.model {  /* 模範解答（答案としてそのまま書ける文） */
+  font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", "IPAPGothic", "IPAGothic", sans-serif;
+  font-size: 9.2pt;
+  line-height: 1.75;
+}
+
+/* 穴埋め正答リスト */
+.blanks { display: block; margin: 3pt 0 0; column-count: 2; column-gap: 14pt; }
+.blanks div { break-inside: avoid; font-size: 9pt; margin: 1pt 0; }
+.blanks .n {
+  display: inline-block; min-width: 2.4em; font-weight: 700; color: var(--ans);
+}
+
+/* 語群 */
+.bank {
+  border: .8pt dashed var(--ink-faint);
+  padding: 7pt 10pt;
+  font-size: 8.8pt;
+  line-height: 1.9;
+  margin: 6pt 0;
+  background: #fcfcfc;
+}
+.bank b { font-family: "Hiragino Kaku Gothic ProN","Yu Gothic","IPAPGothic",sans-serif; font-size: 8.2pt; }
+
+/* 表 */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 8.8pt;
+  margin: 6pt 0 8pt;
+  page-break-inside: avoid;
+}
+th, td { border: .6pt solid var(--rule); padding: 3.5pt 5pt; vertical-align: top; text-align: left; }
+th { background: #f0f0f0; font-weight: 700; }
+td.c, th.c { text-align: center; }
+
+/* 反応式・経路 */
+.rxn {
+  font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", "IPAPGothic", "IPAGothic", sans-serif;
+  font-size: 8.8pt;
+  line-height: 1.8;
+  background: #f6f8fa;
+  border: .6pt solid var(--rule-soft);
+  padding: 6pt 9pt;
+  margin: 5pt 0 7pt;
+  white-space: pre-wrap;
+}
+
+/* 高校生物 → 大学生化学 の橋渡し囲み */
+.bridge {
+  border: 1pt solid var(--pre);
+  background: var(--pre-bg);
+  padding: 8pt 11pt;
+  margin: 8pt 0 12pt;
+  font-size: 9.2pt;
+}
+.bridge h4 { margin-top: 0; color: var(--pre); }
+
+/* ---------- 穴埋めシート ---------- */
+.ws-sec { margin: 0 0 12pt; }
+.ws-sec > h3 {
+  font-size: 10.4pt;
+  margin: 0 0 5pt;
+  padding: 3pt 8pt;
+  background: #eee;
+  border-left: 4pt solid var(--accent);
+}
+.ws-list { list-style: none; margin: 0; padding: 0; }
+.ws-list > li {
+  page-break-inside: avoid; break-inside: avoid;
+  padding: 3.5pt 2pt 3.5pt 20pt;
+  border-bottom: .5pt dotted var(--rule);
+  position: relative;
+  line-height: 2.0;
+}
+.ws-list > li::before {
+  content: "□";
+  position: absolute; left: 2pt; top: 3.5pt; color: var(--ink-faint);
+}
+.b {  /* 空欄 */
+  display: inline-block;
+  min-width: 6.5em;
+  border-bottom: 1pt solid var(--ink);
+  text-align: center;
+  margin: 0 2pt;
+}
+.b.s { min-width: 3.6em; }
+.b.l { min-width: 11em; }
+.num {
+  font-family: "Hiragino Kaku Gothic ProN","Yu Gothic","IPAPGothic",sans-serif;
+  font-size: 7.6pt; font-weight: 700; color: var(--accent);
+  vertical-align: 3pt; margin-right: 1pt;
+}
+/* 解答面 */
+.key .b { border-bottom: none; min-width: 0; color: var(--ans); font-weight: 700; }
+.key .ws-list > li::before { content: "✓"; color: var(--ans); }
+
+/* ---------- ページ制御 ---------- */
+.page-break { page-break-before: always; break-before: page; }
+.avoid-break { page-break-inside: avoid; break-inside: avoid; }
+h2.year, h2.sec, h3.q, .ws-sec > h3 { page-break-after: avoid; break-after: avoid; }
+
+/* ---------- 画面表示時のみ ---------- */
+.screen-only {
+  font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", "IPAPGothic", "IPAGothic", sans-serif;
+  font-size: 9pt;
+  background: #1d5c8f;
+  color: #fff;
+  padding: 8pt 12pt;
+  border-radius: 3pt;
+  margin: 0 0 12pt;
+}
+.screen-only a { color: #cfe6f7; }
+
+@media print {
+  body { padding: 0; max-width: none; font-size: 9.4pt; }
+  .screen-only { display: none !important; }
+  a { color: inherit; text-decoration: none; }
+}
+
+@media screen {
+  body { box-shadow: 0 0 0 1px #ddd; }
+}
