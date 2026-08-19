@@ -1,0 +1,843 @@
+<title>生化学2026 過去問精解</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;700&family=Noto+Sans+JP:wght@400;500;700&family=IBM+Plex+Mono:wght@400;600&display=swap">
+<style>
+:root{
+  --paper:#FCFCFB;
+  --card:#F4F5F1;
+  --ink:#16191B;
+  --ink2:#535A5B;
+  --ink3:#7C8384;
+  --rule:#D8DCD6;
+  --rule-soft:#E7EAE4;
+  --teal:#14615A;
+  --teal-soft:#E7EFEC;
+  --plum:#7A2B4E;
+  --plum-soft:#F6E9EE;
+  --ochre:#7E5A0F;
+  --ochre-soft:#F5EEDD;
+  --serif:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --sans:"Noto Sans JP","Hiragino Sans","Yu Gothic",sans-serif;
+  --mono:"IBM Plex Mono","SFMono-Regular",monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#15181A; --card:#1D2124; --ink:#E8EAE6; --ink2:#A6ADAD; --ink3:#848B8C;
+    --rule:#2E3439; --rule-soft:#252B2F;
+    --teal:#74CDBC; --teal-soft:#16292A;
+    --plum:#E7A2BC; --plum-soft:#2A1B22;
+    --ochre:#D8B45E; --ochre-soft:#2A2416;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#15181A; --card:#1D2124; --ink:#E8EAE6; --ink2:#A6ADAD; --ink3:#848B8C;
+  --rule:#2E3439; --rule-soft:#252B2F;
+  --teal:#74CDBC; --teal-soft:#16292A;
+  --plum:#E7A2BC; --plum-soft:#2A1B22;
+  --ochre:#D8B45E; --ochre-soft:#2A2416;
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--paper); color:var(--ink);
+  font-family:var(--sans); font-size:16px; line-height:1.85;
+  font-feature-settings:"palt" 1;
+  margin:0; padding:40px 24px 80px;
+}
+.sheet{max-width:830px;margin:0 auto;display:flex;flex-direction:column;gap:0}
+
+/* ---------- masthead ---------- */
+.masthead{border-bottom:2.5px solid var(--teal);padding-bottom:18px;margin-bottom:10px}
+.eyebrow{font-family:var(--mono);font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--teal);margin:0 0 10px}
+.masthead h1{font-family:var(--serif);font-weight:700;font-size:2.5rem;line-height:1.25;margin:0;text-wrap:balance;letter-spacing:.02em}
+.masthead .sub{color:var(--ink2);font-size:.9rem;margin:10px 0 0;max-width:60ch}
+
+.howto{background:var(--card);border:1px solid var(--rule);border-radius:2px;padding:16px 20px;margin:22px 0 0;font-size:.83rem;color:var(--ink2)}
+.howto b{color:var(--ink);font-weight:700}
+.howto ul{margin:8px 0 0;padding-left:1.2em}
+.howto li{margin:3px 0}
+
+.toc{margin:26px 0 0;border-top:1px solid var(--rule);padding-top:16px}
+.toc h2{font-family:var(--mono);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink3);margin:0 0 10px;font-weight:600}
+.toc ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:2px 26px}
+.toc li{display:flex;gap:12px;font-size:.85rem;padding:3px 0;border-bottom:1px dotted var(--rule-soft)}
+.toc .n{font-family:var(--mono);color:var(--teal);font-weight:600;min-width:2.1em}
+.toc a{color:var(--ink);text-decoration:none}
+.toc a:hover{text-decoration:underline}
+
+/* ---------- question sections ---------- */
+section.q{margin-top:52px;padding-top:0}
+.q-head{display:flex;align-items:baseline;gap:16px;border-bottom:1.5px solid var(--ink);padding-bottom:8px;margin-bottom:22px}
+.q-num{font-family:var(--serif);font-weight:700;font-size:2rem;color:var(--teal);line-height:1;letter-spacing:.02em}
+.q-title{font-family:var(--serif);font-weight:600;font-size:1.28rem;margin:0;line-height:1.4;text-wrap:balance}
+.q-tag{margin-left:auto;font-family:var(--mono);font-size:.66rem;letter-spacing:.12em;color:var(--ink3);white-space:nowrap;text-transform:uppercase}
+
+h3.blk{
+  font-family:var(--mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;
+  font-weight:600;color:var(--teal);margin:30px 0 10px;display:flex;align-items:center;gap:10px;
+}
+h3.blk::after{content:"";flex:1;height:1px;background:var(--rule)}
+h4{font-family:var(--sans);font-weight:700;font-size:.95rem;margin:22px 0 6px;color:var(--ink);text-wrap:balance}
+h4 .idx{font-family:var(--mono);color:var(--teal);margin-right:.5em}
+
+p{margin:.5em 0}
+.sheet ul,.sheet ol{margin:.5em 0;padding-left:1.4em}
+.sheet li{margin:.3em 0}
+
+/* prompt */
+.prompt{
+  border-left:3px solid var(--ink);background:transparent;
+  padding:4px 0 4px 18px;font-family:var(--serif);font-size:.97rem;line-height:1.9;color:var(--ink);
+}
+.prompt p{margin:.35em 0}
+.prompt .u{border-bottom:1.5px solid var(--plum);padding-bottom:1px}
+
+/* basics box */
+.basics{background:var(--ochre-soft);border:1px solid var(--rule);border-left:3px solid var(--ochre);padding:14px 18px;font-size:.88rem}
+.basics .lbl{font-family:var(--mono);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ochre);font-weight:600;display:block;margin-bottom:6px}
+.basics p:first-of-type{margin-top:0}
+.basics p:last-child{margin-bottom:0}
+
+/* answer */
+.answer{background:var(--plum-soft);border-left:3px solid var(--plum);padding:14px 18px;font-size:.92rem}
+.answer strong{color:var(--plum)}
+.answer p:first-child{margin-top:0}
+.answer p:last-child{margin-bottom:0}
+
+/* fill-in blanks grid */
+.blanks{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:0 26px;margin:8px 0 0;font-size:.88rem}
+.blanks div{display:flex;gap:10px;padding:5px 0;border-bottom:1px solid var(--rule-soft);align-items:baseline}
+.blanks .n{font-family:var(--mono);font-weight:600;color:var(--plum);min-width:2.4em;font-variant-numeric:tabular-nums}
+.blanks .a{font-weight:500}
+.blanks .a small{display:block;font-weight:400;color:var(--ink2);font-size:.85em;line-height:1.5}
+
+/* pathway diagram */
+.flow{
+  font-family:var(--mono);font-size:.78rem;line-height:1.95;white-space:pre;
+  overflow-x:auto;background:var(--card);border:1px solid var(--rule);border-radius:2px;
+  padding:14px 16px;margin:14px 0;color:var(--ink);
+}
+.flow b{color:var(--teal);font-weight:600}
+
+/* small clinical / note */
+.note{border-top:1px solid var(--rule);margin-top:16px;padding-top:10px;font-size:.82rem;color:var(--ink2)}
+.note .lbl{font-family:var(--mono);font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink3);font-weight:600;margin-right:.7em}
+
+/* comparison table */
+.tbl-wrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:.85rem;min-width:440px}
+th,td{border-bottom:1px solid var(--rule);padding:8px 10px;text-align:left;vertical-align:top}
+thead th{border-bottom:1.5px solid var(--ink);font-family:var(--sans);font-weight:700;font-size:.8rem}
+tbody th{font-weight:500;color:var(--ink2);width:9em}
+
+.key{color:var(--plum);font-weight:700}
+.term{border-bottom:1px solid var(--teal);padding-bottom:.5px}
+code{font-family:var(--mono);font-size:.86em;background:var(--card);padding:1px 4px;border-radius:2px}
+
+.colophon{margin-top:56px;border-top:1px solid var(--rule);padding-top:14px;font-size:.75rem;color:var(--ink3);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+/* ---------- print: A4 ---------- */
+@media print{
+  @page{size:A4;margin:16mm 15mm 18mm}
+  :root{
+    --paper:#fff;--card:#F4F5F1;--ink:#000;--ink2:#3A4041;--ink3:#6A7172;
+    --rule:#BFC4BE;--rule-soft:#DCE0DA;--teal:#0E4E48;--teal-soft:#EAF1EE;
+    --plum:#6A2242;--plum-soft:#F7EAEF;--ochre:#6B4C0A;--ochre-soft:#F6F0DF;
+  }
+  html,body{background:#fff}
+  body{padding:0;font-size:9.4pt;line-height:1.72;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .sheet{max-width:none}
+  .howto{display:none}
+  .masthead h1{font-size:22pt}
+  .q-num{font-size:17pt}
+  .q-title{font-size:12.5pt}
+  section.q{break-before:page;page-break-before:always;margin-top:0}
+  section.q:first-of-type{break-before:auto;page-break-before:auto}
+  .q-head{break-after:avoid;page-break-after:avoid}
+  h3.blk,h4{break-after:avoid;page-break-after:avoid;margin-top:14pt}
+  .prompt,.basics,.answer,.flow,.note,table{break-inside:avoid;page-break-inside:avoid}
+  .blanks div{break-inside:avoid}
+  .toc{break-after:page;page-break-after:always}
+  a{color:inherit;text-decoration:none}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<div class="sheet">
+
+<header class="masthead">
+  <p class="eyebrow">Biochemistry / Past Paper Solutions</p>
+  <h1>生化学 2026<br>過去問 解答・解説</h1>
+  <p class="sub">出題7題の全文・解答・解説。各項目は「高校生物で習ったこと」から出発し、大学生化学の分子レベルの説明へ橋渡しする構成にしています。</p>
+  <div class="howto">
+    <b>この資料の読み方</b>
+    <ul>
+      <li><b>問題文</b>… 出題そのまま。下線部は解答欄で個別に扱います。</li>
+      <li><b>高校生物からの橋渡し</b>… ここだけ読めば前提知識が揃うブロック。</li>
+      <li><b>解答</b>… 答案に書くべき骨子。穴埋めは番号順の一覧。</li>
+      <li><b>解説</b>… なぜそうなるか。太字は答案のキーワード。</li>
+    </ul>
+    <p style="margin:10px 0 0">印刷はブラウザの印刷 → 用紙A4・余白「規定」・背景グラフィックONで、各大問が1ページ目から始まります。</p>
+  </div>
+  <nav class="toc">
+    <h2>Contents</h2>
+    <ol>
+      <li><span class="n">I</span><a href="#q1">ヘモグロビンと酸素解離</a></li>
+      <li><span class="n">II</span><a href="#q2">ペントースリン酸経路・クエン酸回路・BAT</a></li>
+      <li><span class="n">III</span><a href="#q3">運動時のグリコーゲン分解制御</a></li>
+      <li><span class="n">IV</span><a href="#q4">脂肪酸の合成とβ酸化</a></li>
+      <li><span class="n">V</span><a href="#q5">クエン酸シャトルとNADPH供給</a></li>
+      <li><span class="n">VI</span><a href="#q6">解糖系を回し続ける補酵素の再生</a></li>
+      <li><span class="n">VII</span><a href="#q7">経口糖負荷試験と肝の解糖系</a></li>
+    </ol>
+  </nav>
+</header>
+
+<!-- ================= I ================= -->
+<section class="q" id="q1">
+  <div class="q-head">
+    <span class="q-num">I</span>
+    <h2 class="q-title">ヘモグロビンと酸素解離 ── 2,3-BPG シャントとボーア効果</h2>
+    <span class="q-tag">タンパク質</span>
+  </div>
+
+  <h3 class="blk">問題文</h3>
+  <div class="prompt">
+    <p>（穴埋め：タンパク質／ヘモグロビン）</p>
+    <p>解糖系を利用して赤血球から効率的に酸素を解離する仕組みがある。これについて説明せよ。また、スプリンターとマラソンランナーの骨格筋では、それぞれ異なる仕組みで酸素解離が促進されている。違いがわかるように説明せよ。</p>
+  </div>
+
+  <h3 class="blk">高校生物からの橋渡し</h3>
+  <div class="basics">
+    <span class="lbl">Prerequisites</span>
+    <p><b>高校で習ったこと。</b>ヘモグロビン（Hb）は赤血球に含まれるタンパク質で、鉄を含むヘムを4つ持ち、酸素を最大4分子結合する。酸素解離曲線は直線ではなく<b>S字（シグモイド）</b>を描く。そして「二酸化炭素濃度が高いところでは曲線が右にずれ、酸素を離しやすくなる」と習った。これがボーア効果です。</p>
+    <p><b>大学ではここが分子で説明される。</b>Hb四量体には2つの立体構造があります。<span class="term">T状態</span>（tense／緊張型＝酸素と結びつきにくい）と <span class="term">R状態</span>（relaxed／弛緩型＝結びつきやすい）で、両者は平衡状態にあります。酸素が1つ結合するとサブユニット間の塩橋が切れてR側へ傾き、残りも結合しやすくなる（＝<b>協同性</b>、これがS字の正体）。逆に、<b>T状態に結合して安定化する分子はすべて「酸素を離しやすくする＝曲線を右にずらす」</b>。この一文が本問すべての答えの骨格です。</p>
+    <p><b>用語。</b>酸素飽和度が50%になる酸素分圧を <span class="term">P<sub>50</sub></span> と呼びます。右方シフト＝P<sub>50</sub>上昇＝同じ酸素分圧でより多くの酸素を手放す、という意味です（ヒトのP<sub>50</sub>は約26 Torr）。</p>
+    <p><b>もう一つ重要な前提。</b>成熟赤血球には<b>核もミトコンドリアもありません</b>。したがってATPは解糖系だけに頼っており、赤血球の代謝を考えるときは常に「解糖系しかない細胞」として扱います。</p>
+  </div>
+
+  <h3 class="blk">解答</h3>
+  <div class="answer">
+    <p><strong>(a) 解糖系を利用した酸素解離のしくみ＝2,3-ビスホスホグリセリン酸（2,3-BPG）シャント（ラパポート＝リューベリング回路）。</strong>赤血球では解糖系の中間体1,3-BPGの一部が、ビスホスホグリセリン酸ムターゼによって2,3-BPGに変換され、2,3-BPGホスファターゼで3-ホスホグリセリン酸に戻って解糖系に復帰する。この迂回路ではホスホグリセリン酸キナーゼによる基質レベルのリン酸化を1回飛ばすため、ATPを1分子犠牲にしている。生じた2,3-BPGは強い負電荷をもち、デオキシHb（T状態）四量体の中央の空洞にあるβ鎖の正電荷残基（N末端Val1のα-アミノ基、His2、Lys82、His143）と塩橋を形成して<strong>T状態を選択的に安定化</strong>する。R状態では空洞が狭くなり結合できない。結果としてHbの酸素親和性が下がり（P<sub>50</sub>上昇＝右方シフト）、組織で酸素を効率よく手放せる。</p>
+    <p><strong>(b) スプリンターの骨格筋＝乳酸由来のH<sup>+</sup>による解離促進（ボーア効果）。</strong>速筋線維（type IIx）主体で短時間・高強度の運動を行うため、無酸素的解糖に依存し、ピルビン酸が乳酸に還元されてH<sup>+</sup>が大量に生じる。H<sup>+</sup>はHbのβ146His等をプロトン化して塩橋を形成し、T状態を安定化して酸素を放出させる。</p>
+    <p><strong>(b) マラソンランナーの骨格筋＝有酸素代謝由来のCO<sub>2</sub>（と熱）による解離促進。</strong>遅筋線維（type I）主体でミトコンドリアとミオグロビンに富み、脂肪酸酸化とクエン酸回路・電子伝達系による完全酸化が主体なので、乳酸ではなく<strong>CO<sub>2</sub></strong>を大量に産生する。CO<sub>2</sub>は①Hbα・β鎖のN末端α-アミノ基と直接反応してカルバミノヘモグロビン（–NH–COO<sup>−</sup>）を作り、生じた負電荷が塩橋を形成してT状態を安定化する、②赤血球内の炭酸脱水酵素でHCO<sub>3</sub><sup>−</sup>＋H<sup>+</sup>となり、このH<sup>+</sup>がボーア効果を起こす、の2経路で右方シフトを生む。加えて活動筋の代謝熱による局所温度上昇も親和性を下げ、持久トレーニングでは赤血球2,3-BPG濃度自体も上昇する。</p>
+    <p><strong>両者の対比。</strong>スプリンターは「<strong>解糖系の終末産物である乳酸＝酸</strong>」で、マラソンランナーは「<strong>完全酸化の終末産物であるCO<sub>2</sub>＝と熱</strong>」で右方シフトを作る。異なる代謝様式に由来する異なるエフェクターが、最終的には<strong>いずれもT状態の安定化</strong>という同一の分子機構に収束する。</p>
+  </div>
+
+  <h3 class="blk">解説</h3>
+
+  <h4><span class="idx">1.</span>2,3-BPGシャントは「ATPを捨てて酸素運搬能を買う」取引</h4>
+  <p>まず経路の位置を確認します。解糖系の第6段階でグリセルアルデヒド3-リン酸脱水素酵素（GAPDH）が高エネルギー化合物 1,3-BPG を作り、通常はホスホグリセリン酸キナーゼ（PGK）がADPをリン酸化してATPを1分子作ります。赤血球ではここから分岐します。</p>
+  <div class="flow">グルコース → … → グリセルアルデヒド3-リン酸
+                        │ GAPDH（NAD<sup>+</sup> → NADH）
+                        ▼
+                  <b>1,3-ビスホスホグリセリン酸</b>
+             ┌──────────┴──────────┐
+   PGK（ATP 1分子産生）              ビスホスホグリセリン酸ムターゼ
+             │                        ▼
+             │                  <b>2,3-BPG</b> ──→ ヘモグロビンのT状態に結合
+             │                        │ 2,3-BPGホスファターゼ
+             ▼                        ▼
+        3-ホスホグリセリン酸 ←────────┘   ※迂回路はATPを産まない
+             │
+             ▼  … → ピルビン酸</div>
+  <p>赤血球は自分のATP（Na<sup>+</sup>/K<sup>+</sup>-ATPaseや細胞骨格維持に必要）を1分子分あきらめてまで2,3-BPGを作ります。それだけ酸素を「運ぶ」より「渡す」ことが重要だ、という設計思想です。赤血球内の2,3-BPG濃度は約5 mMで、これはHb四量体の濃度とほぼ等モル。<b>Hb 1分子に2,3-BPG 1分子</b>という化学量論で結合します。</p>
+
+  <h4><span class="idx">2.</span>なぜ2,3-BPGがないと酸素が渡せないのか</h4>
+  <p>精製したHbは2,3-BPGを含まないため、P<sub>50</sub>が約1〜2 Torrまで下がります。これは「肺で酸素を掴んだら組織でほとんど離さない」状態で、酸素運搬体として役に立ちません。生体内のP<sub>50</sub>が約26 Torrに保たれているのは2,3-BPGのおかげです。肺（PO<sub>2</sub>≈100 Torr）でほぼ飽和し、組織（PO<sub>2</sub>≈20〜40 Torr）で大きく飽和度を落とす──この落差こそが酸素供給量です。</p>
+  <p>結合の分子的実態も押さえておくと答案に厚みが出ます。デオキシHb（T状態）ではβ鎖どうしの間に正電荷が並んだ中央空洞があり、5個の負電荷をもつ2,3-BPGがここにはまり込みます。酸素化してR状態になるとβ鎖が互いに近づいて空洞が狭くなり、2,3-BPGは押し出されます。つまり<b>2,3-BPGとO<sub>2</sub>は互いに競合的に作用する</b>アロステリック調節です。</p>
+
+  <h4><span class="idx">3.</span>2,3-BPGが動く場面（応用として頻出）</h4>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>状況</th><th>2,3-BPG</th><th>意味</th></tr></thead>
+    <tbody>
+      <tr><td>高地順応・慢性肺疾患・貧血・慢性心不全</td><td>増加</td><td>低酸素に対して数時間〜数日で応答し、組織への酸素放出量を確保する代償</td></tr>
+      <tr><td>胎児ヘモグロビン HbF（α<sub>2</sub>γ<sub>2</sub>）</td><td>結合が弱い</td><td>γ鎖ではHis143がSerに置換して正電荷が1対減る → 2,3-BPGが効きにくい → 親和性が高い → 母体血から酸素を奪える</td></tr>
+      <tr><td>保存血（バンク血）</td><td>減少</td><td>解糖系が止まり2,3-BPGが枯渇。大量輸血直後は酸素を離しにくい</td></tr>
+    </tbody>
+  </table></div>
+
+  <h4><span class="idx">4.</span>速筋と遅筋 ── 代謝様式の違いがエフェクターの違いになる</h4>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th></th><th>スプリンター（速筋・type IIx／白筋）</th><th>マラソンランナー（遅筋・type I／赤筋）</th></tr></thead>
+    <tbody>
+      <tr><th>筋線維の特徴</th><td>ミトコンドリア・毛細血管・ミオグロビンが乏しい。グリコーゲン貯蔵と解糖系酵素が豊富</td><td>ミトコンドリア・毛細血管・ミオグロビンに富む。脂肪酸酸化能が高い</td></tr>
+      <tr><th>主なATP供給</th><td>クレアチンリン酸＋無酸素的解糖（速いが低効率）</td><td>脂肪酸β酸化＋クエン酸回路＋電子伝達系（遅いが高効率）</td></tr>
+      <tr><th>生じる代謝産物</th><td>乳酸＋H<sup>+</sup>（局所pH低下）</td><td>CO<sub>2</sub>＋H<sub>2</sub>O＋代謝熱</td></tr>
+      <tr><th>右方シフトの機構</th><td><b>ボーア効果（プロトン）</b>：H<sup>+</sup>がβ146His等をプロトン化 → 塩橋形成 → T状態安定化</td><td><b>カルバミノ化＋ボーア効果＋温度</b>：CO<sub>2</sub>がN末端と共有結合してカルバミン酸を作る／炭酸脱水酵素経由のH<sup>+</sup>／局所温度上昇</td></tr>
+      <tr><th>持続性</th><td>数十秒。pH低下自体が解糖系（PFK-1）を止めるので長続きしない</td><td>数時間。定常的にCO<sub>2</sub>が出続けるため右方シフトが維持される</td></tr>
+    </tbody>
+  </table></div>
+  <p>答案で差がつくポイントは、<b>「乳酸のH<sup>+</sup>」と「CO<sub>2</sub>」を単に並べるのではなく、なぜその代謝産物が出るのかを筋線維タイプ（＝有酸素的か無酸素的か）から導くこと</b>です。そのうえで「どちらもT状態安定化に帰着する」と締めると、アロステリック制御の理解を示せます。</p>
+  <p>なお遅筋の酸素利用にはもう一段あります。ミオグロビンは単量体でS字を描かず、低い酸素分圧（P<sub>50</sub>≈2.8 Torr）でも酸素を結合できるため、Hbが放した酸素を筋細胞内で受け取り、ミトコンドリアまで運ぶ中継役を果たします。「Hbは渡す係、Mbは受け取る係」という役割分担も、遅筋が持久力を発揮できる理由の一部です。</p>
+
+  <div class="note"><span class="lbl">Check</span>「解糖系を利用して」という問題文の指定は2,3-BPGシャントを名指ししています。ボーア効果だけを書くと(a)の得点にはなりません。(a)は赤血球内の代謝経路、(b)は筋の代謝産物によるエフェクター作用、と問われている層が違う点に注意してください。</div>
+</section>
+
+<!-- ================= II ================= -->
+<section class="q" id="q2">
+  <div class="q-head">
+    <span class="q-num">II</span>
+    <h2 class="q-title">ペントースリン酸経路とクエン酸回路、そして褐色脂肪の脱共役</h2>
+    <span class="q-tag">糖代謝 / 熱産生</span>
+  </div>
+
+  <h3 class="blk">問題文</h3>
+  <div class="prompt">
+    <p>ペントースリン酸経路は、還元力通貨である（1）と核酸生成の基質となる（2）を供給する。酸化ストレスに対する防御因子としての（3）の需要が高い赤血球ではこの経路の活性が高いことが知られている。そのため、産生される（2）は核酸合成には利用されず、トランスケトラーゼやトランスアルドラーゼによって（4）（5）に変換され、最終的には解糖系に流入しエネルギー産生を助ける。</p>
+    <p>8つの反応系からなるクエン酸回路は、ミトコンドリア内膜に埋め込まれている（6）とミトコンドリアマトリックスにある酵素群によって触媒される。このうち、エネルギー的に不可逆反応を触媒する酵素は、アセチルCoAが関わる代謝からクエン酸回路が始まるとした場合、クエン酸合成酵素、（7）と（8）の順番の3つがある。クエン酸回路ではミトコンドリア電子伝達系に電子を供与する（9）やFADH<sub>2</sub>を産生し、結果的にATP産生に繋げる重要な代謝経路である。（9）を産生する反応は（7）、（8）と（10）が、FADH<sub>2</sub>を産生する反応は（6）が触媒する。<span class="u">クエン酸回路の代謝流量は関わる酵素の翻訳後修飾ではなく、（11）、（12）とカルシウムイオンによる活性制御が重要であり、（12）とカルシウムイオンはそれぞれピルビン酸からアセチルCoAを産生する（13）の反応を抑制あるいは活性化する。</span></p>
+    <p>下線部について、生体内では電子伝達系とATP産生が脱共役することが恒常的に認められる細胞がある。BATでは、どのような状況で、どのようなメカニズムによって脱共役が成立しているのか、脱共役の意義を含めて説明しなさい。</p>
+  </div>
+
+  <h3 class="blk">高校生物からの橋渡し</h3>
+  <div class="basics">
+    <span class="lbl">Prerequisites</span>
+    <p><b>高校で習ったこと。</b>呼吸は「解糖系 → クエン酸回路（TCA回路） → 電子伝達系」の3段階で、グルコース1分子から最大38（実質約30）ATPができる。電子伝達系では、酸化還元反応のエネルギーを使ってH<sup>+</sup>をミトコンドリア内膜の外（膜間腔）に汲み出し、たまったH<sup>+</sup>がATP合成酵素を通って戻るときにATPができる（<b>化学浸透説</b>）。</p>
+    <p><b>大学で足すこと①：H<sup>+</sup>の勾配は「電池」である。</b>膜間腔に汲み出されたH<sup>+</sup>は、濃度差（pH差）と電位差の両方をもつ位置エネルギー＝<span class="term">プロトン駆動力</span>として蓄えられます。ATP合成酵素はこの電池を「ATP」という形で回収する装置にすぎません。だから<b>電池の中身をATP以外の形で使う（＝熱にする）ことも原理的に可能</b>で、それが本問の脱共役です。</p>
+    <p><b>大学で足すこと②：還元力にはNADHとNADPHの2種類がある。</b>どちらも構造はほぼ同じ（NADPHはリン酸が1つ多いだけ）ですが、用途が完全に分けられています。<b>NADHは「燃やしてATPを作る」ための異化用</b>、<b>NADPHは「作る・守る」ための同化＋抗酸化用</b>。細胞はこの2つを別々の濃度比で維持しており（NAD<sup>+</sup>過剰／NADPH過剰）、混ざらないよう酵素が補酵素を厳密に選びます。ペントースリン酸経路はNADPHの主要な供給源です。</p>
+    <p><b>大学で足すこと③：褐色脂肪組織（BAT, brown adipose tissue）。</b>ふつうの脂肪（白色脂肪）はエネルギーを溜める組織ですが、褐色脂肪は<b>脂肪を燃やして熱を作る専門の組織</b>です。ミトコンドリアが極端に多く、その中のシトクロム（鉄）の色で褐色に見えます。新生児の肩甲間部・頸部に多く、成人でも頸部・鎖骨上窩・傍脊椎に残っています。</p>
+  </div>
+
+  <h3 class="blk">解答（穴埋め）</h3>
+  <div class="answer">
+    <div class="blanks">
+      <div><span class="n">(1)</span><span class="a">NADPH</span></div>
+      <div><span class="n">(2)</span><span class="a">リボース5-リン酸</span></div>
+      <div><span class="n">(3)</span><span class="a">還元型グルタチオン（GSH）</span></div>
+      <div><span class="n">(4)</span><span class="a">フルクトース6-リン酸<small>※(4)(5)は順不同</small></span></div>
+      <div><span class="n">(5)</span><span class="a">グリセルアルデヒド3-リン酸</span></div>
+      <div><span class="n">(6)</span><span class="a">コハク酸脱水素酵素<small>（複合体II）</small></span></div>
+      <div><span class="n">(7)</span><span class="a">イソクエン酸脱水素酵素</span></div>
+      <div><span class="n">(8)</span><span class="a">α-ケトグルタル酸脱水素酵素複合体</span></div>
+      <div><span class="n">(9)</span><span class="a">NADH</span></div>
+      <div><span class="n">(10)</span><span class="a">リンゴ酸脱水素酵素</span></div>
+      <div><span class="n">(11)</span><span class="a">ATP<small>（ADP/ATP比＝エネルギー需要）</small></span></div>
+      <div><span class="n">(12)</span><span class="a">NADH<small>（NADH/NAD<sup>+</sup>比）</small></span></div>
+      <div><span class="n">(13)</span><span class="a">ピルビン酸脱水素酵素複合体（PDH）</span></div>
+    </div>
+  </div>
+
+  <h3 class="blk">解答（記述：BATの脱共役）</h3>
+  <div class="answer">
+    <p><strong>どのような状況で。</strong>寒冷曝露時（および過食時の食事誘発性熱産生）。とくに体表面積／体重比が大きく熱を失いやすいうえ、ふるえ熱産生が未熟な<strong>新生児</strong>、冬眠動物、寒冷順化したヒト成人で顕著である。</p>
+    <p><strong>メカニズム。</strong>寒冷刺激は視床下部を介して交感神経を興奮させ、BAT内の神経終末から<strong>ノルアドレナリン</strong>が放出される。褐色脂肪細胞の<strong>β<sub>3</sub>アドレナリン受容体</strong>（Gs共役型）が刺激され、アデニル酸シクラーゼ→cAMP上昇→<strong>PKA</strong>活性化。PKAは①ATGL・ホルモン感受性リパーゼをリン酸化して中性脂肪を分解し、<strong>長鎖遊離脂肪酸</strong>を大量に遊離させる、②p38 MAPK→ATF2／PGC-1α経路を介して<strong>UCP1（サーモゲニン）遺伝子の転写を誘導</strong>する。遊離脂肪酸はβ酸化の基質として電子伝達系を回すと同時に、ミトコンドリア内膜のプロトン輸送体 <strong>UCP1</strong> に結合し、通常UCP1を抑制しているプリンヌクレオチド（ATP・ADP・GDP）の阻害を解除して活性化する。活性化したUCP1は膜間腔のH<sup>+</sup>を<strong>ATP合成酵素を通さずに</strong>マトリックスへ戻すため、プロトン駆動力が仕事に変換されずに<strong>熱として散逸</strong>する。すなわち電子伝達（基質酸化）とATP産生の共役が外れる。</p>
+    <p><strong>意義。</strong>①筋収縮によらずに熱を作る<strong>非ふるえ熱産生</strong>として体温を維持する（新生児の低体温防止、冬眠からの覚醒）。②プロトン駆動力が低く保たれることで電子伝達系の逆圧（呼吸制御）が外れ、呼吸鎖が最大速度で回り続けるため、β酸化と基質酸化が加速する ── エネルギー過剰分を熱として処分でき、肥満・耐糖能異常に対する防御となる。③膜電位が過度に高い状態は複合体I・IIIからのROS産生を増やすため、適度な脱共役はROS産生の抑制にも寄与する。</p>
+  </div>
+
+  <h3 class="blk">解説</h3>
+
+  <h4><span class="idx">1.</span>ペントースリン酸経路の全体像 ── 2段構えで理解する</h4>
+  <p>この経路は「グルコース6-リン酸（G6P）を材料に、細胞のニーズに応じてNADPHとリボースを作り分ける柔軟な装置」です。2つの段階からなります。</p>
+  <div class="flow"><b>【酸化的段階（不可逆）】</b>  ここでNADPHができる。律速はG6PD。
+  グルコース6-リン酸
+     │ グルコース6-リン酸脱水素酵素（G6PD）… <b>NADP⁺ → NADPH</b>  ★律速段階
+     ▼
+  6-ホスホグルコノラクトン →（ラクトナーゼ）→ 6-ホスホグルコン酸
+     │ 6-ホスホグルコン酸脱水素酵素 … <b>NADP⁺ → NADPH</b> ＋ CO₂
+     ▼
+  リブロース5-リン酸
+
+<b>【非酸化的段階（可逆）】</b>  ここで糖の炭素数を組み替える。NADPHは出ない。
+  リブロース5-リン酸 ⇄ <b>リボース5-リン酸</b>（C5, 核酸の材料）
+                    ⇄ キシルロース5-リン酸（C5）
+        │ トランスケトラーゼ（C2転移・補酵素 TPP＝ビタミンB1）
+        │ トランスアルドラーゼ（C3転移）
+        ▼
+  <b>フルクトース6-リン酸（C6）＋ グリセルアルデヒド3-リン酸（C3）</b> → 解糖系へ合流
+
+  収支： 3 G6P + 6 NADP⁺ → 3 CO₂ + 2 F6P + 1 G3P + 6 NADPH</div>
+  <p>非酸化的段階が<b>可逆</b>であることが要点です。核酸合成が必要な増殖細胞ではリボース5-リン酸で止め、リボースが不要な細胞ではF6PとG3Pに変換して解糖系へ戻す。逆に、NADPHは要らないがリボースだけ欲しい場合には、解糖系のF6PとG3Pから<b>逆向きに</b>リボース5-リン酸を作ることもできます。</p>
+
+  <h4><span class="idx">2.</span>なぜ赤血球でこの経路の活性が高いのか</h4>
+  <p>赤血球は酸素を運ぶ細胞である以上、常に酸化ストレスにさらされています。ヘムの鉄（Fe<sup>2+</sup>）が自動酸化してメトヘモグロビン（Fe<sup>3+</sup>）になる際にスーパーオキシド（O<sub>2</sub><sup>•−</sup>）が発生し、これがスーパーオキシドジスムターゼで過酸化水素（H<sub>2</sub>O<sub>2</sub>）になります。この始末をつけるのが<b>グルタチオン系</b>です。</p>
+  <div class="flow">  H₂O₂ + 2 GSH ──[グルタチオンペルオキシダーゼ]──→ 2 H₂O + GSSG（酸化型）
+  GSSG + <b>NADPH</b> + H⁺ ──[グルタチオン還元酵素]──→ 2 <b>GSH</b> + NADP⁺
+                                 ▲
+                                 └── NADPHの供給源は<b>ペントースリン酸経路のみ</b>（赤血球）</div>
+  <p>赤血球にはミトコンドリアがないため、他細胞が使うNADPH供給源（リンゴ酸酵素、ミトコンドリア型イソクエン酸脱水素酵素など）が使えません。<b>NADPH供給が実質G6PD一本足打法</b>であることが、G6PD欠損症で溶血発作が起きる理由です。ソラマメ摂取（favism）、抗マラリア薬プリマキン、サルファ剤、感染症などの酸化ストレスで急性溶血を起こし、変性したHbがハインツ小体として観察されます。世界で最も頻度の高い酵素異常症で、マラリア流行地域に多い（マラリア原虫に対する抵抗性を与えるため選択されたと考えられる）ことも押さえておくとよいでしょう。</p>
+  <p>そして赤血球は核を持たないのでDNA/RNA合成をしません。だから作られたリボース5-リン酸は行き場がなく、非酸化的段階を経てF6P・G3Pとなり、解糖系に戻ってATP産生に貢献します。問題文が「（2）は核酸合成には利用されず」と書いている理由がここです。</p>
+
+  <h4><span class="idx">3.</span>クエン酸回路8反応と、押さえるべき3つの「不可逆」</h4>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>#</th><th>酵素</th><th>反応</th><th>産物・特徴</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td><b>クエン酸合成酵素</b></td><td>アセチルCoA＋OAA→クエン酸</td><td>不可逆（ΔG°′≈−32 kJ/mol）。回路の入口</td></tr>
+      <tr><td>2</td><td>アコニターゼ</td><td>クエン酸⇄イソクエン酸</td><td>可逆。Fe-Sクラスターをもつ</td></tr>
+      <tr><td>3</td><td><b>イソクエン酸脱水素酵素</b></td><td>イソクエン酸→α-ケトグルタル酸</td><td><b>不可逆</b>・<b>NADH</b>＋CO<sub>2</sub>。ADP/Ca<sup>2+</sup>で活性化、ATP/NADHで阻害 ＝ 最重要の調節点</td></tr>
+      <tr><td>4</td><td><b>α-ケトグルタル酸脱水素酵素複合体</b></td><td>α-KG→スクシニルCoA</td><td><b>不可逆</b>・<b>NADH</b>＋CO<sub>2</sub>。PDHと相同の3酵素複合体、補酵素5種</td></tr>
+      <tr><td>5</td><td>スクシニルCoA合成酵素</td><td>スクシニルCoA→コハク酸</td><td>GTP（＝ATP相当）を基質レベルのリン酸化で産生</td></tr>
+      <tr><td>6</td><td><b>コハク酸脱水素酵素</b></td><td>コハク酸→フマル酸</td><td><b>唯一ミトコンドリア内膜に埋まる</b>＝電子伝達系の複合体II。<b>FADH<sub>2</sub></b>を産生し電子をユビキノンへ直接渡す</td></tr>
+      <tr><td>7</td><td>フマラーゼ</td><td>フマル酸→リンゴ酸</td><td>水の付加</td></tr>
+      <tr><td>8</td><td><b>リンゴ酸脱水素酵素</b></td><td>リンゴ酸→OAA</td><td><b>NADH</b>。ΔG°′は正だがOAAが即座に消費されるため進む</td></tr>
+    </tbody>
+  </table></div>
+  <p>「アセチルCoAが関わる代謝から始まるとした場合」という但し書きは、<b>回路の入口をクエン酸合成酵素に固定する</b>ための指定です。順番に並べれば クエン酸合成酵素 →（7）イソクエン酸脱水素酵素 →（8）α-ケトグルタル酸脱水素酵素複合体 となります。この3つが不可逆であることが、クエン酸回路が一方向にしか回らない理由であり、同時に<b>調節点が3か所しかない</b>理由でもあります（不可逆反応＝調節点、は代謝全体を貫く原則です）。</p>
+  <p>1回転の収支：<b>NADH 3分子（反応3・4・8）＋ FADH<sub>2</sub> 1分子（反応6）＋ GTP 1分子＋ CO<sub>2</sub> 2分子</b>。NADHは複合体Iへ、FADH<sub>2</sub>（複合体IIの中で生じる）はユビキノンを介して複合体IIIへ入るので、複合体Iをスキップする分だけATP換算が少なくなります（NADH≈2.5 ATP、FADH<sub>2</sub>≈1.5 ATP）。</p>
+
+  <h4><span class="idx">4.</span>「翻訳後修飾ではなく」が意味すること ── 回路の流量制御</h4>
+  <p>グリコーゲン代謝（大問III）がリン酸化＝翻訳後修飾で劇的に切り替わるのと対照的に、クエン酸回路の8酵素はリン酸化制御をほとんど受けません。代わりに働くのが次の3つです。</p>
+  <ul>
+    <li><b>（11）ATP（ADP/ATP比）＝エネルギー需要のセンサー。</b>ATPが余っていれば回路は止まり、ADPが増えれば回る。イソクエン酸脱水素酵素はADPでアロステリックに活性化、ATPで阻害されます。</li>
+    <li><b>（12）NADH（NADH/NAD<sup>+</sup>比）＝生成物阻害。</b>NADHが溜まる＝電子伝達系が電子を処理しきれていない＝酸素が足りない、というサインなので、NADHを作る脱水素酵素（クエン酸合成酵素、イソクエン酸脱水素酵素、α-KGDH、そしてPDH）がすべて抑制されます。基質と生成物の量そのものが制御信号になる、シンプルで確実な仕組みです。</li>
+    <li><b>Ca<sup>2+</sup>＝仕事量のセンサー。</b>筋収縮や分泌のために細胞質Ca<sup>2+</sup>が上がると、Ca<sup>2+</sup>はミトコンドリアにも流入し、イソクエン酸脱水素酵素・α-KGDH・そしてPDHホスファターゼを<b>活性化</b>します。「仕事をする合図」と「燃料を燃やす合図」を同一のセカンドメッセンジャーで結びつける、きわめて合理的な設計です。</li>
+  </ul>
+  <p>（13）ピルビン酸脱水素酵素複合体（PDH）は厳密にはクエン酸回路の8反応に含まれませんが、糖を回路に流し込む唯一の入口であり、<b>不可逆</b>（＝脂肪酸からグルコースは作れない、という事実の分子的根拠）です。PDHは生成物であるアセチルCoAとNADH、およびATPで抑制され、Ca<sup>2+</sup>で活性化されます。より正確には、これらはPDHキナーゼ（阻害的にリン酸化）とPDHホスファターゼ（脱リン酸化して活性化）を介して働き、NADH・アセチルCoAはキナーゼを活性化、Ca<sup>2+</sup>はホスファターゼを活性化します。設問の「（12）とカルシウムイオンはそれぞれ…抑制あるいは活性化する」はこの対比を指しています。</p>
+
+  <h4><span class="idx">5.</span>脱共役 ── プロトン駆動力の使い道を変える</h4>
+  <p>電子伝達系とATP合成が「共役」しているとは、<b>ATPを作らない限りH<sup>+</sup>が戻れず、H<sup>+</sup>が戻れない限り電子伝達も進まない</b>という状態です（呼吸制御）。ADPが枯渇すると呼吸が止まるのはこのためです。UCP1はこの鎖を断ち切ります。</p>
+  <div class="flow">  【通常のミトコンドリア】                  【褐色脂肪のミトコンドリア】
+
+   基質酸化 → 電子伝達系                    基質酸化 → 電子伝達系
+        │ H⁺を膜間腔へ汲み出す                   │ H⁺を膜間腔へ汲み出す
+        ▼                                        ▼
+   プロトン駆動力（電池）                   プロトン駆動力（電池）
+        │                                        │
+   ATP合成酵素を通って戻る                  <b>UCP1</b>を通って戻る（素通り）
+        ▼                                        ▼
+      <b>ATP</b>（化学エネルギー）                    <b>熱</b>
+        │                                        │
+   H⁺が戻れないと呼吸が止まる               H⁺が常に戻れる → 呼吸鎖が全速回転
+   （＝呼吸制御がかかる）                   → β酸化も全速 → 脂肪が燃え続ける</div>
+  <p>UCP1が常時オンではなく、脂肪酸によってスイッチが入る点が重要です。平常時はマトリックス側のプリンヌクレオチド（ATP・ADP・GDP）がUCP1に結合してH<sup>+</sup>輸送を止めています。交感神経刺激で脂肪滴が分解されて生じた長鎖遊離脂肪酸がこの抑制を外すため、<b>「燃料の供給」と「脱共役の開始」が同一のシグナル（PKAによるリパーゼ活性化）で同時に起こる</b>という、無駄のない設計になっています。</p>
+
+  <div class="note"><span class="lbl">Clinical</span>2,4-ジニトロフェノール（DNP）は脂溶性の弱酸で、H<sup>+</sup>を捕まえたまま脂質二重層を自由に通過できるため人工的な脱共役剤として働きます。かつて痩せ薬として用いられましたが、熱産生を制御できず致死的高体温をきたし禁止されました。BATのUCP1が「生理的で、調節されたDNP」であると考えると、脱共役の意義と危険性の両方が理解できます。<br><span class="lbl">Note</span>ヒト成人のBATは<sup>18</sup>F-FDG PETで頸部・鎖骨上窩に集積として偶然見つかることがあり、寒冷曝露で活性化され、BAT量の多い人ほど体脂肪率が低い傾向が報告されています。</div>
+</section>
+
+<!-- ================= III ================= -->
+<section class="q" id="q3">
+  <div class="q-head">
+    <span class="q-num">III</span>
+    <h2 class="q-title">運動時の骨格筋グリコーゲン分解 ── AMP・アドレナリン・Ca<sup>2+</sup>の三重制御</h2>
+    <span class="q-tag">グリコーゲン代謝</span>
+  </div>
+
+  <h3 class="blk">問題文</h3>
+  <div class="prompt">
+    <p>運動時の骨格筋におけるグリコーゲン代謝の制御を考える上で、3つの上位の因子（1）、（2）と（3）のかかわりからの理解が重要である。運動前の骨格筋では、グリコーゲン分解経路の律速酵素（4）が（5）化された（6）型となっている。運動が開始されると、ATPが代謝され生じた2 molの（7）からアデニル酸キナーゼによって1 molのATPを再生させることでエネルギーを供給し続ける。この過程で生じる（1）が（4）の構造を変化させ、酵素を80%まで活性化する。このタイミングで、交感神経節から分泌された（2）のシグナルの下流で、（4）の（8）残基が<span class="u">リン酸化</span>される。このリン酸化応答は、（9）から放出された（3）を介した経路によっても増強される。これら（2）と（3）による応答は、（4）による直接的な作用の結果ではなく、（4）のリン酸化に関わる唯一の酵素（10）の活性化を介している。具体的には、運動前の骨格筋にある（10）が、（2）からのシグナルを受けた筋細胞内で活性化された（11）によってリン酸化され、また（3）が（10）の構成サブユニットの1つである（12）に結合することで完全な活性型に変換されることで、（4）のリン酸化を介した活性化を誘導している。</p>
+    <p>下線部について、リン酸化による活性化を維持するために、（2）からのシグナルの下流では別の制御機構が働く。どのような分子機構が働くのか説明しなさい。</p>
+  </div>
+
+  <h3 class="blk">高校生物からの橋渡し</h3>
+  <div class="basics">
+    <span class="lbl">Prerequisites</span>
+    <p><b>高校で習ったこと。</b>グリコーゲンはグルコースが多数つながった貯蔵多糖で、肝臓と筋肉に蓄えられる。運動神経の興奮が筋細胞に伝わると<b>筋小胞体からCa<sup>2+</sup>が放出</b>され、トロポニンに結合してアクチンとミオシンが滑り込み、筋収縮が起こる。アドレナリンは副腎髄質から出る「闘争か逃走」のホルモンで、血糖上昇・心拍増加をもたらす。</p>
+    <p><b>大学で足すこと①：酵素活性の調節には3つの階層がある。</b>（i）<b>アロステリック調節</b>＝基質以外の小分子が酵素の別の部位に結合し、立体構造を変えて活性を上下させる。ミリ秒〜秒で効き、可逆。（ii）<b>共有結合修飾（翻訳後修飾）</b>＝リン酸化など。キナーゼが付け、ホスファターゼが外す。秒〜分で効き、シグナルを増幅できる。（iii）<b>酵素量の変化</b>＝転写調節。時間〜日。本問は(i)と(ii)が組み合わさる典型例です。</p>
+    <p><b>大学で足すこと②：ホルモンは細胞の中に入らない。</b>アドレナリンのような水溶性ホルモンは細胞膜表面の受容体に結合し、細胞内に<b>セカンドメッセンジャー（cAMP）</b>を生じさせて情報を伝えます（受容体→Gタンパク質→アデニル酸シクラーゼ→cAMP→PKA）。1個のホルモン分子が最終的に何万個もの酵素分子を動かす<b>カスケード増幅</b>が起こる点が重要です。</p>
+    <p><b>大学で足すこと③：リン酸化状態は「綱引き」で決まる。</b>ある酵素がリン酸化されているかどうかは、キナーゼ（付ける）とホスファターゼ（外す）の活性の<b>比</b>で決まります。だから「強くリン酸化したい」ときの最も効率的な戦略は、キナーゼを強めることと<b>ホスファターゼを止めること</b>の両方をやることです ── これが本問の記述問題の答えです。</p>
+  </div>
+
+  <h3 class="blk">解答（穴埋め）</h3>
+  <div class="answer">
+    <div class="blanks">
+      <div><span class="n">(1)</span><span class="a">AMP</span></div>
+      <div><span class="n">(2)</span><span class="a">アドレナリン<small>（ノルアドレナリン／カテコールアミン）</small></span></div>
+      <div><span class="n">(3)</span><span class="a">カルシウムイオン（Ca<sup>2+</sup>）</span></div>
+      <div><span class="n">(4)</span><span class="a">グリコーゲンホスホリラーゼ<small>（筋型・ミオホスホリラーゼ）</small></span></div>
+      <div><span class="n">(5)</span><span class="a">脱リン酸</span></div>
+      <div><span class="n">(6)</span><span class="a">b（型）</span></div>
+      <div><span class="n">(7)</span><span class="a">ADP</span></div>
+      <div><span class="n">(8)</span><span class="a">セリン<small>（Ser14）</small></span></div>
+      <div><span class="n">(9)</span><span class="a">筋小胞体</span></div>
+      <div><span class="n">(10)</span><span class="a">ホスホリラーゼキナーゼ</span></div>
+      <div><span class="n">(11)</span><span class="a">プロテインキナーゼA（PKA）</span></div>
+      <div><span class="n">(12)</span><span class="a">δサブユニット<small>（＝カルモジュリン）</small></span></div>
+    </div>
+  </div>
+
+  <h3 class="blk">解答（記述：リン酸化を維持する機構）</h3>
+  <div class="answer">
+    <p><strong>PKAはキナーゼを活性化するだけでなく、同時に脱リン酸化酵素である<span style="white-space:nowrap">プロテインホスファターゼ1（PP1）</span>を抑制する。</strong>これによりリン酸化が「外されない」状態が作られ、活性化が維持・増幅される。具体的には2つの経路が働く。</p>
+    <p><strong>① インヒビター1（I-1）を介する抑制。</strong>PKAがインヒビター1をThr35でリン酸化すると、リン酸化型I-1がPP1の触媒サブユニット（PP1c）に強固に結合してその活性を阻害する。</p>
+    <p><strong>② グリコーゲン標的サブユニットG<sub>M</sub>を介する局在制御。</strong>PP1は単独では基質に届かず、G<sub>M</sub>（PPP1R3A）というサブユニットによってグリコーゲン粒子上に係留されている。PKAがG<sub>M</sub>のsite 2をリン酸化すると、PP1cがG<sub>M</sub>から解離してグリコーゲン粒子から離れ、基質（ホスホリラーゼa、ホスホリラーゼキナーゼ、グリコーゲンシンターゼ）に物理的に近づけなくなる。</p>
+    <p><strong>結果と意義。</strong>リン酸化を「入れる」酵素の活性化と「消す」酵素の停止が同一シグナルで同時に起こる（<strong>プッシュプル制御</strong>）ため、少量のアドレナリンでもホスホリラーゼaの状態が持続し、応答が急峻かつ持続的になる。さらに同じPP1の停止によって<strong>グリコーゲンシンターゼはリン酸化された不活性型のまま保たれる</strong>ので、分解と合成が同時進行して基質とATPを空費する<strong>無益回路（futile cycle）が回避</strong>される（相反的調節）。なお摂食時のインスリンは逆にPP1を活性化し、この系全体を脱リン酸化して合成側へ切り替える。</p>
+  </div>
+
+  <h3 class="blk">解説</h3>
+
+  <h4><span class="idx">1.</span>時間軸で並べると全体が見える</h4>
+  <p>本問の本質は「なぜ3つも制御因子が必要なのか」です。答えは<b>効き始める時間と情報の種類が違うから</b>です。</p>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>順</th><th>因子</th><th>由来する情報</th><th>作用点</th><th>時間</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td><b>AMP</b></td><td>この筋細胞自身のエネルギー枯渇（局所・自律的）</td><td>ホスホリラーゼbに直接アロステリック結合 → 約80%活性化</td><td>秒</td></tr>
+      <tr><td>2</td><td><b>Ca<sup>2+</sup></b></td><td>いま収縮せよという電気的指令（局所・細胞内）</td><td>ホスホリラーゼキナーゼのδ（カルモジュリン）に結合 → 部分活性化</td><td>ミリ秒〜秒</td></tr>
+      <tr><td>3</td><td><b>アドレナリン</b></td><td>全身が運動状態にあるという中枢の判断（全身性）</td><td>β受容体→cAMP→PKA→ホスホリラーゼキナーゼをリン酸化</td><td>秒〜分、持続的</td></tr>
+    </tbody>
+  </table></div>
+  <p>AMPは<b>予告なしに始まった運動</b>に即応します。Ca<sup>2+</sup>は<b>収縮そのもの</b>と燃料動員を直結させます。アドレナリンは<b>まだ収縮していない段階から準備を始めさせ、収縮が終わっても分解を続けさせる</b>。3層が重なることで、応答は速く・確実で・持続的になります。</p>
+
+  <h4><span class="idx">2.</span>なぜAMPが「エネルギー枯渇センサー」として優秀なのか</h4>
+  <p>筋のATP濃度は約5 mMで、激しい運動でも数十%しか下がりません。センサーとして使うには変化が小さすぎます。ところがアデニル酸キナーゼの反応 <code>2 ADP ⇌ ATP + AMP</code> を挟むと事情が変わります。</p>
+  <p>AMPの静止時濃度はATPの1/100程度しかありません。したがって<b>ATPがわずか10%減るだけで、AMPは数倍〜十数倍に跳ね上がる</b>。小さな変化を大きな信号に変換する増幅器として、アデニル酸キナーゼ反応が機能しているわけです。この反応はATPを「再生」しているようにも見えますが、正味では2分子のADPから使えるATPを1分子絞り出す緊急措置であり、同時に<b>AMPという警報を鳴らす</b>ことに意味があります。AMPはホスホリラーゼbのアロステリック部位に結合してT→R転換を起こし、リン酸化なしで約80%の活性を引き出します。同じAMPはAMPKも活性化し、脂肪酸酸化やグルコース取り込みを同時に立ち上げます。</p>
+
+  <h4><span class="idx">3.</span>ホスホリラーゼのaとb、そして肝型との違い</h4>
+  <div class="flow">   ホスホリラーゼ <b>b</b>（脱リン酸化型・低活性）   ⇄   ホスホリラーゼ <b>a</b>（リン酸化型・高活性）
+        │                                              ▲
+        │ AMPで活性化（アロステリック、〜80%）           │ Ser14がリン酸化される
+        │ ATP・グルコース6-リン酸で阻害                  │
+        └──────── ホスホリラーゼキナーゼ ───────────────┘
+                          ▲          ▲
+             PKAによるリン酸化   Ca²⁺がδ（カルモジュリン）に結合
+                （α・βサブユニット）      ＝両方揃って完全活性型
+
+   ホスホリラーゼキナーゼの構造： (α β γ δ)₄
+        γ ＝ 触媒サブユニット／ α・β ＝ 調節（PKAの基質）／ <b>δ ＝ カルモジュリン</b></div>
+  <p>δサブユニットがカルモジュリンそのものである点は必ず問われます。ホスホリラーゼキナーゼは、Ca<sup>2+</sup>結合タンパク質を<b>解離しない構成成分として組み込んでいる</b>という珍しい酵素です。おかげで、収縮のために放出されたCa<sup>2+</sup>を待ち構えて即座に応答できます。</p>
+  <p>臓器差も理解の助けになります。<b>筋型ホスホリラーゼはAMPに応答し、グルコースには応答しません</b>。筋グリコーゲンは自分のための燃料だからです（筋にはグルコース6-ホスファターゼがなく、グルコースを血中に出せません）。一方<b>肝型はAMPに応答せず、グルコースで阻害されます</b>。肝グリコーゲンは血糖維持のための備蓄であり、血糖が足りているなら分解する理由がないからです。「誰のためのグリコーゲンか」で制御が変わる、と覚えると忘れません。</p>
+
+  <h4><span class="idx">4.</span>記述問題を書くときの構成</h4>
+  <p>設問は「リン酸化<b>による活性化を維持するために</b>」と条件を絞っています。つまりカスケードの増幅（PKAがホスホリラーゼキナーゼを活性化する話）を繰り返すのは的外れで、<b>反対向きの酵素であるホスファターゼをどう止めるか</b>を書くことが求められています。答案の骨格は次の4文で十分です。</p>
+  <ol>
+    <li>リン酸化状態はキナーゼとホスファターゼの綱引きで決まるため、キナーゼだけ活性化しても持続しない。</li>
+    <li>PKAがインヒビター1をリン酸化し、リン酸化型I-1がPP1触媒サブユニットを直接阻害する。</li>
+    <li>PKAがPP1のグリコーゲン標的サブユニットG<sub>M</sub>をリン酸化し、PP1をグリコーゲン粒子から解離させて基質に届かなくする。</li>
+    <li>結果、ホスホリラーゼaが維持されると同時にグリコーゲンシンターゼは不活性型に固定され、分解と合成の無益回路が防がれる。</li>
+  </ol>
+
+  <div class="note"><span class="lbl">Clinical</span>筋型ホスホリラーゼの欠損＝<b>McArdle病（糖原病V型）</b>。運動開始直後に筋痛・こむら返りを起こし、血中乳酸が上がらない（筋グリコーゲンを分解できないため）。一方、10分ほど休むと脂肪酸酸化に切り替わって楽に運動を続けられる「セカンドウィンド現象」が特徴的です。肝型ホスホリラーゼ欠損はVI型で、症状は肝腫大と軽い低血糖にとどまります。<b>同じ酵素の臓器別アイソフォームが、それぞれの臓器の役割に対応した症状を出す</b>好例です。</div>
+</section>
+
+<!-- ================= IV ================= -->
+<section class="q" id="q4">
+  <div class="q-head">
+    <span class="q-num">IV</span>
+    <h2 class="q-title">脂肪酸の合成とβ酸化 ── 区画・炭素供与体・奇数鎖・極長鎖・ケトン体</h2>
+    <span class="q-tag">脂質代謝</span>
+  </div>
+
+  <h3 class="blk">問題文</h3>
+  <div class="prompt">
+    <p>① パルミチン酸（16:0）の生合成とβ酸化は、それぞれ細胞内のどの分画で行われるのか答えなさい。</p>
+    <p>② パルミチン酸の生合成のC2炭素供与体は何か。また、この代謝物の産生酵素の名称を答えなさい。</p>
+    <p>③ ②の酵素には、細胞内局在が異なる2つのアイソフォームが存在している。生合成に関わらないアイソフォームは脂質代謝制御においてどのような役割を担うのか答えなさい。</p>
+    <p>④ 胃の全摘手術を行った患者は、マルガリン酸（17:0）のβ酸化において生じるアセチルCoAとは別の代謝産物をクエン酸回路で完全酸化するために、どのようなクエン酸回路の代謝産物に変換し、その後どのような経路を経て完全酸化させるのか説明しなさい。</p>
+    <p>⑤ セロチン酸（26:0）のβ酸化における最初の反応を触媒する酵素名を答えなさい。また、この反応で受け取る電子は最終的にどの分子に渡され、どのように代謝されるのか答えなさい。</p>
+    <p>⑥ 長期間の断食時に脂肪酸分解から生じる物質は脳において栄養として用いられる。この物質はなぜ肝臓のみで得られるか記述せよ。</p>
+  </div>
+
+  <h3 class="blk">高校生物からの橋渡し</h3>
+  <div class="basics">
+    <span class="lbl">Prerequisites</span>
+    <p><b>高校で習ったこと。</b>脂肪（中性脂肪）は脂肪酸とグリセリンからできており、分解されると呼吸基質として使われる。細胞小器官としてミトコンドリア（呼吸の場）と細胞質基質（解糖系の場）があり、それぞれ膜で仕切られている。</p>
+    <p><b>大学で足すこと①：「合成と分解は必ず別ルートにする」という大原則。</b>ある物質の合成経路と分解経路が同じ酵素の逆反応だと、両方が同時に走って基質とATPを空回りさせてしまいます（無益回路）。そこで細胞は必ず、<b>場所（区画）・酵素・補酵素・調節ホルモン</b>を分けます。脂肪酸ではこうなります ── 合成は<b>細胞質・NADPH・マロニルCoA・インスリン</b>、分解は<b>ミトコンドリア・NAD<sup>+</sup>とFAD・アシルCoA・グルカゴン</b>。この対比表が大問IVの背骨です。</p>
+    <p><b>大学で足すこと②：脂肪酸は「炭素2個ずつ」で扱われる。</b>脂肪酸のβ酸化は末端から炭素2個ずつをアセチルCoAとして切り出す反応の繰り返しで、逆に合成は炭素2個ずつ継ぎ足す反応の繰り返しです。だから天然の脂肪酸はほとんどが偶数鎖。奇数鎖脂肪酸（本問のマルガリン酸17:0）を最後まで切っていくと炭素3個の<b>プロピオニルCoA</b>が余る、という設定が④です。</p>
+    <p><b>大学で足すこと③：ペルオキシソームという小器官。</b>高校ではほぼ扱いませんが、酸化反応を専門にする小さな袋状の小器官で、<b>過酸化水素（H<sub>2</sub>O<sub>2</sub>）を作り、カタラーゼで分解する</b>ことからこの名があります。ミトコンドリアが扱えないほど長い脂肪酸（極長鎖脂肪酸）の処理を担当します。⑤はここが舞台です。</p>
+    <p><b>大学で足すこと④：脳はグルコースしか食べられない、わけではない。</b>脳は血液脳関門に守られており、アルブミンに結合した長鎖脂肪酸はほぼ通過できません。しかし飢餓が続くと、水溶性で専用輸送体（MCT1）を通れる<b>ケトン体</b>が脳の主要燃料になります。⑥のテーマです。</p>
+  </div>
+
+  <h3 class="blk">解答</h3>
+  <div class="answer">
+    <p><strong>① 生合成＝細胞質基質（サイトゾル）。β酸化＝ミトコンドリアマトリックス。</strong>合成は主に肝臓・脂肪組織・授乳期乳腺で行われる。なお炭素数22以上の極長鎖脂肪酸や分枝鎖脂肪酸のβ酸化はペルオキシソームで開始され、鎖長を短縮してからミトコンドリアに渡される。</p>
+    <p><strong>② C2炭素供与体＝マロニルCoA。産生酵素＝アセチルCoAカルボキシラーゼ（ACC）。</strong>ACCはビオチンを補欠分子族とし、ATPとHCO<sub>3</sub><sup>−</sup>を用いてアセチルCoAをカルボキシル化する。脂肪酸合成の律速酵素。</p>
+    <p><strong>③ 生合成に関わらないアイソフォーム＝ACC2（ミトコンドリア外膜に係留、心筋・骨格筋に多い）。その役割は「β酸化のブレーキ」。</strong>ACC2が局所で産生するマロニルCoAは、ミトコンドリア外膜のカルニチンパルミトイルトランスフェラーゼI（CPT1）を<strong>アロステリックに阻害</strong>する。CPT1は長鎖アシルCoAをアシルカルニチンに変換してミトコンドリアへ搬入する入口であり、β酸化の律速段階である。したがってACC2はマロニルCoA濃度を介して<strong>脂肪酸のミトコンドリア搬入＝β酸化速度を制御するスイッチ</strong>として働き、合成と分解が同時に進む無益回路を防いでいる。摂食時（インスリン）はACC2が活性化してマロニルCoAが増え、CPT1が阻害されてβ酸化が止まる。絶食・運動時はAMPKがACCをリン酸化して不活性化するためマロニルCoAが減り、CPT1の脱抑制によりβ酸化が亢進する。（一方ACC1は細胞質可溶性で、脂肪酸合成酵素（FAS）に基質を供給する本来の合成用アイソフォーム。）</p>
+    <p><strong>④ 変換先＝スクシニルCoA。</strong>マルガリン酸（17:0）のβ酸化は7回転してアセチルCoA 7分子と、最後に炭素3個の<strong>プロピオニルCoA</strong> 1分子を生じる。プロピオニルCoAは、プロピオニルCoAカルボキシラーゼ（補酵素ビオチン、ATP・HCO<sub>3</sub><sup>−</sup>を要する）でD-メチルマロニルCoAとなり、メチルマロニルCoAエピメラーゼでL体に変換され、<strong>メチルマロニルCoAムターゼ（補酵素＝アデノシルコバラミン、すなわちビタミンB<sub>12</sub>）</strong>によってスクシニルCoAに異性化される。<br>
+    <strong>その後の完全酸化経路。</strong>スクシニルCoAはクエン酸回路の中間体だが、回路は触媒的に1周して元に戻るため、中間体として入っただけでは完全酸化されず回路の量が増える（アナプレローシス）にとどまる。完全酸化するには一度回路から出す（カタプレローシス）必要がある。すなわち スクシニルCoA → コハク酸 → フマル酸 → <strong>リンゴ酸</strong> と進み、<strong>(a)</strong> リンゴ酸がミトコンドリアから細胞質へ出て細胞質リンゴ酸脱水素酵素でオキサロ酢酸となり、<strong>PEPカルボキシキナーゼ</strong>でホスホエノールピルビン酸に、さらに解糖系を下って<strong>ピルビン酸</strong>になる（あるいは <strong>(b)</strong> ミトコンドリア内のリンゴ酸酵素でリンゴ酸が直接ピルビン酸＋CO<sub>2</sub>＋NADPHになる）。生じたピルビン酸が<strong>ピルビン酸脱水素酵素複合体でアセチルCoA</strong>となり、はじめてクエン酸回路で CO<sub>2</sub> と H<sub>2</sub>O にまで完全酸化される。<br>
+    <strong>胃全摘という条件の意味。</strong>胃全摘により壁細胞が失われて<strong>内因子が分泌されなくなり、回腸末端でのビタミンB<sub>12</sub>吸収が不能</strong>となる。B<sub>12</sub>はメチルマロニルCoAムターゼの補酵素なので、補充がなければこの経路は途中で止まり、メチルマロン酸が蓄積する。したがって本経路が成立するにはB<sub>12</sub>の非経口的（筋注等）補充が前提となる。</p>
+    <p><strong>⑤ 酵素名＝アシルCoAオキシダーゼ（ACOX1）。</strong>セロチン酸（26:0）は極長鎖脂肪酸であり、ミトコンドリアではなく<strong>ペルオキシソーム</strong>でβ酸化が開始される。その第一段階（アシルCoAのα,β-脱水素反応）を触媒するのがアシルCoAオキシダーゼである。<br>
+    <strong>電子の行方。</strong>酵素の補欠分子族FADが電子を受け取ってFADH<sub>2</sub>となるが、ミトコンドリアのアシルCoA脱水素酵素と異なり電子伝達フラビンタンパク質（ETF）や呼吸鎖には渡さず、<strong>直接、分子状酸素O<sub>2</sub>に渡して過酸化水素（H<sub>2</sub>O<sub>2</sub>）を生成する</strong>。生じたH<sub>2</sub>O<sub>2</sub>はペルオキシソーム内に高濃度に存在する<strong>カタラーゼ</strong>によって <code>2H<sub>2</sub>O<sub>2</sub> → 2H<sub>2</sub>O + O<sub>2</sub></code> と分解される（あるいはカタラーゼのペルオキシダーゼ活性でエタノール等の基質酸化に使われる）。この段階の自由エネルギーはATPにならず<strong>熱として失われる</strong>ため、ペルオキシソームβ酸化はエネルギー産生ではなく<strong>鎖長短縮が目的</strong>である。炭素数8程度まで短縮された後、カルニチン抱合体としてミトコンドリアへ移送され完全酸化される。</p>
+    <p><strong>⑥ 物質＝ケトン体（アセト酢酸、D-3-ヒドロキシ酪酸、アセトン）。肝臓のみで得られる理由は次の4点。</strong><br>
+    <strong>(1) 律速酵素の臓器特異的発現。</strong>ケトン体生成の律速酵素であるHMG-CoA合成酵素のミトコンドリア型アイソフォーム（HMGCS2）が、事実上<strong>肝臓（および一部腎臓）のミトコンドリアマトリックスにしか発現していない</strong>。絶食時はグルカゴン・PPARαによりその発現がさらに誘導される。（全身にある細胞質型HMGCS1はコレステロール合成用で、区画も役割も別。）<br>
+    <strong>(2) 基質が肝臓に集中する。</strong>絶食時、低インスリン・高グルカゴンにより脂肪組織のリパーゼが活性化し、遊離脂肪酸が大量に肝臓へ流入する。肝ではAMPK/PKAがACCを不活性化してマロニルCoAが低下し、CPT1の脱抑制によりβ酸化が最大化するため、アセチルCoAが過剰になる。<br>
+    <strong>(3) アセチルCoAの行き場がない。</strong>同時に肝臓は糖新生を全開にしており、オキサロ酢酸がPEPへ引き抜かれる。さらにβ酸化で上昇したNADH/NAD<sup>+</sup>比によりオキサロ酢酸はリンゴ酸側に偏る。その結果、アセチルCoAがクエン酸回路に入りきれず、ケトン体生成へ流れる。<br>
+    <strong>(4) 肝臓は自分ではケトン体を使えない。</strong>ケトン体をアセトアセチルCoAに戻す酵素<strong>スクシニルCoA:3-ケト酸CoAトランスフェラーゼ（SCOT／OXCT1）を肝臓は欠く</strong>。したがって作ったケトン体を消費せずそのまま血中に放出でき、脳・心筋・骨格筋・腎皮質へ「輸出」する専業生産者として機能する。</p>
+  </div>
+
+  <h3 class="blk">解説</h3>
+
+  <h4><span class="idx">1.</span>合成と分解の対比表 ── まずこれを覚える</h4>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th></th><th>脂肪酸合成（パルミチン酸まで）</th><th>β酸化</th></tr></thead>
+    <tbody>
+      <tr><th>場所</th><td>細胞質基質</td><td>ミトコンドリアマトリックス（極長鎖はペルオキシソームで前処理）</td></tr>
+      <tr><th>アシル基の担体</th><td>アシルキャリアタンパク質（ACP）ドメイン</td><td>補酵素A（CoA）</td></tr>
+      <tr><th>酵素構成</th><td>脂肪酸合成酵素（FAS）＝1本のポリペプチドに7活性を持つ多機能酵素の二量体</td><td>4種の独立した酵素（＋三機能タンパク質）</td></tr>
+      <tr><th>補酵素</th><td>NADPH（還元）</td><td>NAD<sup>+</sup>・FAD（酸化）</td></tr>
+      <tr><th>C2単位</th><td><b>マロニルCoA</b>（脱炭酸が縮合の駆動力）</td><td>アセチルCoAとして切り出される</td></tr>
+      <tr><th>律速段階</th><td>アセチルCoAカルボキシラーゼ（ACC）</td><td>CPT1（カルニチンシャトル）</td></tr>
+      <tr><th>ホルモン</th><td>インスリンで促進</td><td>グルカゴン・アドレナリンで促進</td></tr>
+    </tbody>
+  </table></div>
+  <p>②の要点を補足すると、FASが伸長反応で実際に付加する炭素2個は<b>すべてマロニルCoA由来</b>で、アセチルCoAはいちばん最初のプライマー（メチル末端側の2炭素）としてのみ使われます。マロニルCoAが付加するときにCO<sub>2</sub>が外れ、その脱炭酸の大きな負の自由エネルギー変化が、本来は起こりにくい炭素-炭素結合形成（Claisen縮合）を強引に進める駆動力になります。ACCがATPを使ってわざわざCO<sub>2</sub>を付け、FASが直後にそのCO<sub>2</sub>を外すのは無駄に見えますが、<b>ATPのエネルギーを縮合反応に注ぎ込むための仕掛け</b>です。パルミチン酸1分子の収支は アセチルCoA 1＋マロニルCoA 7＋NADPH 14。</p>
+
+  <h4><span class="idx">2.</span>③ マロニルCoAという「二重の意味を持つ分子」</h4>
+  <div class="flow">          <b>ACC1</b>（細胞質・可溶性）              <b>ACC2</b>（ミトコンドリア外膜に係留）
+       肝・脂肪組織・授乳期乳腺              心筋・骨格筋に豊富
+              │                                      │
+              ▼                                      ▼
+        マロニルCoA（合成基質プール）          マロニルCoA（局所シグナルプール）
+              │                                      │
+              ▼                                      ▼
+      脂肪酸合成酵素 → パルミチン酸            <b>CPT1を阻害</b> → 長鎖アシルCoAが
+                                               ミトコンドリアに入れない → <b>β酸化停止</b>
+
+   摂食時：インスリン → ACC脱リン酸化・活性化 → マロニルCoA↑ → 合成ON／酸化OFF
+   絶食・運動時：AMPK → ACCリン酸化・不活性化 → マロニルCoA↓ → 合成OFF／酸化ON</div>
+  <p>同じ代謝物が「材料」と「シグナル」の二役を演じる、代謝制御の美しい例です。骨格筋や心筋は脂肪酸をほとんど合成しないのに ACC2 を持っている ── その存在理由は合成ではなく、<b>β酸化を止めるための分子を作ること</b>にあります。この視点が③の答えの核心です。運動時にAMPKがACCを止めることで脂肪が燃え出す仕組みは、AMPK活性化薬（メトホルミンの作用の一部）や運動の代謝効果を説明する基礎でもあります。</p>
+
+  <h4><span class="idx">3.</span>④ 「回路に入れる」と「完全酸化する」は別のこと</h4>
+  <p>この設問の難所は、経路名を並べることではなく、<b>クエン酸回路の中間体は回路内では燃やせない</b>という理解を示せるかです。回路は触媒サイクルであり、オキサロ酢酸は1周して必ずオキサロ酢酸に戻ります。つまりクエン酸回路が正味で酸化しているのは<b>入口から入ったアセチルCoAだけ</b>です。スクシニルCoAとして途中から入った炭素は、回路の中間体プールを増やす（アナプレローシス＝補充反応）だけで、CO<sub>2</sub>にはなりません。</p>
+  <div class="flow">  マルガリン酸 17:0
+     │ β酸化 ×7回転
+     ▼
+  アセチルCoA ×7  ──→ クエン酸回路で完全酸化（こちらは問題なし）
+     ＋
+  <b>プロピオニルCoA</b>（C3）
+     │ プロピオニルCoAカルボキシラーゼ ［ビオチン, ATP, HCO₃⁻］
+     ▼
+  D-メチルマロニルCoA
+     │ メチルマロニルCoAエピメラーゼ
+     ▼
+  L-メチルマロニルCoA
+     │ メチルマロニルCoAムターゼ ［<b>アデノシルコバラミン＝ビタミンB₁₂</b>］ ← 胃全摘で欠乏
+     ▼
+  <b>スクシニルCoA</b> ＝ クエン酸回路の中間体（ここでは"入っただけ"）
+     │ コハク酸 → フマル酸 → <b>リンゴ酸</b>
+     ▼
+  ┌── (a) 細胞質へ → オキサロ酢酸 →［PEPCK］→ PEP → … → <b>ピルビン酸</b>
+  └── (b) リンゴ酸酵素で直接 → <b>ピルビン酸</b> ＋ CO₂ ＋ NADPH
+     │ ピルビン酸脱水素酵素複合体
+     ▼
+  <b>アセチルCoA</b> ──→ クエン酸回路で <b>CO₂ と H₂O に完全酸化</b> ✔</div>
+  <p>この「一度回路から出してピルビン酸に落とし、アセチルCoAとして入れ直す」経路が答えの中心です。肝臓では同じリンゴ酸→PEPの流れがそのまま<b>糖新生</b>に向かうため、奇数鎖脂肪酸は（偶数鎖と違って）<b>糖原性</b>をもちます。「脂肪酸からはグルコースを作れない」という原則の唯一の例外がここです ── 原則が成り立つ理由はPDHが不可逆でアセチルCoAからピルビン酸に戻れないことなので、<b>PDHを経由せず回路の中間体として入る炭素だけは糖になれる</b>と理解すると筋が通ります。</p>
+  <p>臨床的には、胃全摘後のB<sub>12</sub>欠乏（肝に数年分の貯蔵があるため術後数年してから顕在化）で、①メチルマロニルCoAムターゼ障害によるメチルマロン酸血症・尿症と、それに伴う異常な奇数鎖／分枝脂肪酸のミエリンへの取り込みによる<b>亜急性連合性脊髄変性症</b>（後索・側索障害）、②もう一つのB<sub>12</sub>酵素であるメチオニン合成酵素（補酵素メチルコバラミン）の障害による葉酸のメチル基トラップ→<b>巨赤芽球性貧血</b>、が生じます。血中メチルマロン酸はB<sub>12</sub>欠乏に特異的な指標として使われます。</p>
+
+  <h4><span class="idx">4.</span>⑤ ペルオキシソームβ酸化はなぜATPを作らないのか</h4>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>第1段階の酵素</th><th>ミトコンドリア</th><th>ペルオキシソーム</th></tr></thead>
+    <tbody>
+      <tr><th>酵素</th><td>アシルCoA脱水素酵素</td><td><b>アシルCoAオキシダーゼ（ACOX1）</b></td></tr>
+      <tr><th>電子の受け手</th><td>FAD → ETF → ETF-QO → ユビキノン → 呼吸鎖</td><td>FAD → <b>O<sub>2</sub> に直接</b> → H<sub>2</sub>O<sub>2</sub></td></tr>
+      <tr><th>後始末</th><td>酸化的リン酸化で約1.5 ATP</td><td><b>カタラーゼ</b>が 2H<sub>2</sub>O<sub>2</sub>→2H<sub>2</sub>O+O<sub>2</sub></td></tr>
+      <tr><th>エネルギー</th><td>ATPとして回収</td><td><b>熱として散逸（ATPにならない）</b></td></tr>
+      <tr><th>目的</th><td>エネルギー産生</td><td>鎖長短縮（C26→C8程度まで）</td></tr>
+    </tbody>
+  </table></div>
+  <p>ミトコンドリアの内膜輸送体（CPT1）は極長鎖脂肪酸を扱えないため、C22以上はまずペルオキシソームで短くする必要があります。ペルオキシソームへの搬入はABCD1トランスポーターが担い、<b>ABCD1の欠損＝副腎白質ジストロフィー（X-ALD）</b>では極長鎖脂肪酸が蓄積して中枢神経の脱髄と副腎不全を起こします。ペルオキシソーム形成自体が障害される<b>ツェルベガー症候群</b>もあわせて押さえておくとよいでしょう。なお、ペルオキシソームは植物ではグリオキシソームとして脂肪→糖の変換を担う、という高校生物の知識ともつながります。</p>
+
+  <h4><span class="idx">5.</span>⑥ ケトン体 ── 「作る臓器」と「使う臓器」の分業</h4>
+  <div class="flow">  【肝臓：作る】                              【脳・心筋・骨格筋・腎皮質：使う】
+   脂肪酸 → β酸化 → アセチルCoA ×2            アセト酢酸
+        │ チオラーゼ                              │ <b>SCOT（OXCT1）</b> ← 肝臓はこれを持たない
+        ▼                                        ▼   スクシニルCoAからCoAを受け取る
+   アセトアセチルCoA                          アセトアセチルCoA
+        │ <b>HMG-CoA合成酵素（HMGCS2）</b> ★律速           │ チオラーゼ
+        ▼   ← 肝ミトコンドリアに限局                ▼
+   HMG-CoA                                    アセチルCoA ×2 → クエン酸回路で酸化
+        │ HMG-CoAリアーゼ
+        ▼
+   <b>アセト酢酸</b> ⇄ <b>D-3-ヒドロキシ酪酸</b>（NADH/NAD⁺比を反映）
+        │（自然脱炭酸）                       ※血中を運ばれ、MCT1で血液脳関門を通過
+        ▼
+   アセトン（呼気へ ＝ 甘い果実臭）</div>
+  <p>「なぜ肝臓だけか」を答えるとき、<b>作る側の理由（HMGCS2が肝特異的、基質が集中、アセチルCoAが余る）</b>と<b>使えない側の理由（SCOTを欠く）</b>の両方に触れるのが完答です。とくに後者は、もし肝臓がSCOTを持っていたら自分で作ったケトン体を自分で燃やしてしまい、他臓器に供給できないという<b>目的論的に明快な理由</b>があるので、答案で必ず書きたいポイントです。</p>
+  <p>意義も添えられると強い答案になります。脳は通常1日約120 gのグルコースを消費しますが、脂肪酸は使えません。糖新生の材料は主に筋タンパク質由来のアミノ酸なので、飢餓が続けば筋肉が溶けていきます。長期飢餓で脳がエネルギーの約2/3をケトン体でまかなえるようになることは、<b>糖新生需要を減らして体タンパク質を守る（タンパク質節約作用）</b>という生存上きわめて重要な適応です。なお赤血球はミトコンドリアを持たないためケトン体を使えず、常にグルコースを必要とします（だから飢餓でも糖新生をゼロにはできません）。</p>
+
+  <div class="note"><span class="lbl">Clinical</span>1型糖尿病ではインスリン欠乏＋グルカゴン優位により脂肪分解とケトン体生成が制御を失い、<b>糖尿病性ケトアシドーシス</b>に至ります（アセト酢酸・3-ヒドロキシ酪酸は中等度の強さの酸なので代謝性アシドーシスを起こす）。一方、飢餓時のケトーシスはインスリンが残っているためアシドーシスまでは進みにくい。「同じ経路でも、ブレーキ役のインスリンがあるかないかで臨床像が変わる」という対比で覚えられます。</div>
+</section>
+
+<!-- ================= V ================= -->
+<section class="q" id="q5">
+  <div class="q-head">
+    <span class="q-num">V</span>
+    <h2 class="q-title">クエン酸シャトル ── アセチルCoAとNADPHを細胞質へ運ぶ</h2>
+    <span class="q-tag">脂質代謝</span>
+  </div>
+
+  <h3 class="blk">問題文</h3>
+  <div class="prompt">
+    <p>（クエン酸シャトル／脂肪酸合成に関する穴埋め）</p>
+    <p>・malic enzymeによる脂肪酸合成において用いられる最初の生成物と補酵素を答えよ。</p>
+    <p>・（※出題文の2項目目は手元の問題文では欠落しています。以下ではクエン酸シャトル全体を解説し、想定される問われ方を網羅しています。）</p>
+  </div>
+
+  <h3 class="blk">高校生物からの橋渡し</h3>
+  <div class="basics">
+    <span class="lbl">Prerequisites</span>
+    <p><b>思い出すこと。</b>ミトコンドリアは二重膜で、内膜は非常に選択性が高く、決まった輸送体を持つ物質しか通れません。そして脂肪酸合成の材料であるアセチルCoAは<b>ミトコンドリアの中で作られる</b>のに、合成する場所は<b>細胞質</b>です（大問IV①）。</p>
+    <p><b>そこで生じる問題。</b>アセチルCoAは内膜を通れません。CoA部分が大きく荷電しているためです。ではどうやって細胞質へ運ぶか ── <b>通れる分子に化けさせて運び、向こう側で元に戻す</b>。これが「シャトル」という発想で、大問VIのリンゴ酸-アスパラギン酸シャトルとまったく同じ考え方です。細胞は「膜を通れないものは、通れる形に変換して運ぶ」という共通戦略を繰り返し使います。</p>
+    <p><b>もうひとつの課題。</b>脂肪酸合成にはNADPHが14分子も要ります（大問II）。ペントースリン酸経路だけでは足りません。クエン酸シャトルは、<b>アセチルCoAの輸送のついでにNADPHも作る</b>という一石二鳥の仕掛けになっています。その「ついで」を担当するのがmalic enzyme（リンゴ酸酵素）です。</p>
+  </div>
+
+  <h3 class="blk">解答</h3>
+  <div class="answer">
+    <p><strong>malic enzyme（リンゴ酸酵素）の反応：</strong><br>
+    <code>リンゴ酸 ＋ NADP<sup>+</sup> → ピルビン酸 ＋ CO<sub>2</sub> ＋ NADPH ＋ H<sup>+</sup></code></p>
+    <p><strong>脂肪酸合成に用いられる生成物＝NADPH</strong>（同時に生じるピルビン酸とCO<sub>2</sub>は合成の直接の材料ではなく、ピルビン酸はミトコンドリアへ戻ってオキサロ酢酸に再生される）。<strong>補酵素＝NADP<sup>+</sup></strong>（酸化型として反応に入り、還元されてNADPHとなる）。</p>
+    <p><strong>位置づけ。</strong>クエン酸シャトルは、細胞質のNADH 1分子を消費してNADPH 1分子を作る「還元力の通貨両替装置」でもある。パルミチン酸合成に必要なNADPH 14分子のうち、およそ半数（8分子程度）をこの経路が、残りをペントースリン酸経路の酸化的段階が供給する。</p>
+  </div>
+
+  <h3 class="blk">解説</h3>
+
+  <h4><span class="idx">1.</span>クエン酸シャトルの一周</h4>
+  <div class="flow">   ── ミトコンドリアマトリックス ──         │内膜│      ── 細 胞 質 ──
+
+   ピルビン酸 ──[PDH]──→ <b>アセチルCoA</b>
+                              │
+      オキサロ酢酸 ───────────┘ クエン酸合成酵素
+              ▲               ▼
+              │            <b>クエン酸</b> ══[トリカルボン酸輸送体]══>  <b>クエン酸</b>
+              │                                                        │ <b>ATPクエン酸リアーゼ（ACLY）</b>
+              │                                                        │ ＋CoA ＋ATP
+              │                                                        ▼
+              │                                          <b>アセチルCoA</b> ＋ オキサロ酢酸
+              │                                                │              │
+              │                                                ▼              │ 細胞質MDH
+              │                                       ACC → マロニルCoA        │ <b>NADH → NAD⁺</b>
+              │                                                ▼              ▼
+              │                                       FAS → パルミチン酸    リンゴ酸
+              │                                                              │ <b>malic enzyme</b>
+   オキサロ酢酸 <──[ピルビン酸カルボキシラーゼ, ATP, ビオチン]──            │ <b>NADP⁺ → NADPH</b>
+              ▲                                                              ▼
+              └──────── ピルビン酸 <══[ピルビン酸輸送体]══════════ ピルビン酸 ＋ CO₂
+
+   1回転のコスト： ACLYでATP 1 ＋ ピルビン酸カルボキシラーゼでATP 1 ＝ アセチルCoA 1個あたりATP 2</div>
+
+  <h4><span class="idx">2.</span>なぜクエン酸という形で運ぶのか</h4>
+  <p>クエン酸が選ばれた理由は2つあります。第一に、内膜にはクエン酸/リンゴ酸交換輸送体（トリカルボン酸輸送体）が存在し、通過できること。第二に、そして重要なのは、<b>クエン酸が「エネルギーが足りている」というシグナルそのものだから</b>です。マトリックスでATPとNADHが十分にあると、イソクエン酸脱水素酵素が阻害されてクエン酸が蓄積します。この余ったクエン酸が細胞質へ出る ── つまり<b>「燃やす必要がないほど基質が余っている」ときにだけ脂肪酸合成の材料が供給される</b>という、自動的に理にかなった仕組みになっています。</p>
+  <p>クエン酸はさらに細胞質で2つのアロステリック作用を発揮します。<b>ACCを活性化</b>（ACCを重合させて活性なフィラメントにする）して合成のアクセルを踏み、同時に<b>ホスホフルクトキナーゼ1（PFK-1）を阻害</b>して解糖系にブレーキをかけます。「材料は十分だから、これ以上糖を分解しなくてよい。余りは脂肪に変えよ」という一貫したメッセージです。</p>
+
+  <h4><span class="idx">3.</span>還元力の両替という視点</h4>
+  <p>細胞質では、解糖系のGAPDH反応によってNADHが生じます（大問VI）。一方、脂肪酸合成が欲しいのはNADPHです。クエン酸シャトルの後半 ── 細胞質MDHで<b>NADHを消費</b>してリンゴ酸を作り、malic enzymeで<b>NADPHを産生</b>してピルビン酸に戻す ── は、正味で次の反応を行っています。</p>
+  <div class="flow">   NADH ＋ NADP⁺ ＋ ATP ─→ NAD⁺ ＋ <b>NADPH</b> ＋ ADP ＋ Pi
+        （細胞質MDH ＋ malic enzyme ＋ ピルビン酸カルボキシラーゼの正味）
+
+   意味： 解糖で生じた「異化用の還元力（NADH）」を、
+          ATPを1つ払って「同化用の還元力（NADPH）」に両替している。</div>
+  <p>糖質を大量に摂取したときは解糖系が回ってNADHもクエン酸も豊富になるため、この経路が効率よく働きます。「糖を食べすぎると脂肪になる」という現象の分子的実体が、まさにこのクエン酸シャトル＋ACC＋FASの流れです。</p>
+
+  <div class="note"><span class="lbl">Exam tip</span>この大問で問われやすいのは次の4点です。①アセチルCoAが内膜を通れないこと、②細胞質でクエン酸を切る酵素の名前（<b>ATPクエン酸リアーゼ</b>）、③NADPHを生む酵素とその補酵素（<b>malic enzyme／NADP<sup>+</sup></b>）、④オキサロ酢酸をミトコンドリアに戻す酵素（<b>ピルビン酸カルボキシラーゼ</b>、ビオチン酵素、アセチルCoAで活性化）。空欄が何であれ、上図の一周を書ければ対応できます。</div>
+</section>
+
+<!-- ================= VI ================= -->
+<section class="q" id="q6">
+  <div class="q-head">
+    <span class="q-num">VI</span>
+    <h2 class="q-title">解糖系を回し続ける ── NAD<sup>+</sup>の再生</h2>
+    <span class="q-tag">解糖系</span>
+  </div>
+
+  <h3 class="blk">問題文</h3>
+  <div class="prompt">
+    <p>好気的な細胞においても解糖系は重要なエネルギー産生経路である。解糖系を動かし続けるために必須の補酵素が触媒している。どのような方法によりこの補酵素の再生を行うのか簡単に説明しなさい。</p>
+  </div>
+
+  <h3 class="blk">高校生物からの橋渡し</h3>
+  <div class="basics">
+    <span class="lbl">Prerequisites</span>
+    <p><b>高校で習ったこと。</b>解糖系はグルコース1分子をピルビン酸2分子に分解し、ATPを2分子（正味）作る。酸素がないと発酵になり、ピルビン酸が乳酸やエタノールになる。</p>
+    <p><b>大学で足すこと：発酵の目的はエネルギーではなく「補酵素の回収」。</b>高校では「酸素がないから仕方なく乳酸を作る」と教わりますが、乳酸を作ってもATPは1分子も増えません。それでもやるのは、<b>NAD<sup>+</sup>を取り戻すため</b>です。解糖系の第6段階（GAPDH）でNAD<sup>+</sup>がNADHに還元されますが、細胞内のNAD<sup>+</sup>の総量はごくわずか（数十〜数百 μM、グルコース消費量に比べて桁違いに少ない）。<b>再酸化しなければ解糖系は数秒で止まります</b>。ピルビン酸を乳酸に還元する反応は、そのNADHを酸化してNAD<sup>+</sup>に戻すための「捨て場」なのです。「発酵＝NAD<sup>+</sup>再生装置」と読み替えるのが、大学生化学の視点です。</p>
+    <p><b>本問の焦点。</b>設問はわざわざ「<b>好気的な細胞においても</b>」と断っています。つまり乳酸発酵の話をしてほしいのではなく、<b>酸素がある細胞ではどうやってNAD<sup>+</sup>を再生しているのか</b>を答えさせる問題です。答えは「シャトル」です。</p>
+  </div>
+
+  <h3 class="blk">解答</h3>
+  <div class="answer">
+    <p><strong>必須の補酵素＝NAD<sup>+</sup></strong>（グリセルアルデヒド3-リン酸脱水素酵素 GAPDH の反応：<code>グリセルアルデヒド3-リン酸 ＋ NAD<sup>+</sup> ＋ Pi → 1,3-ビスホスホグリセリン酸 ＋ NADH ＋ H<sup>+</sup></code>）。細胞内のNAD<sup>+</sup>プールは小さいため、生じたNADHを絶えず再酸化しないと解糖系は直ちに停止する。</p>
+    <p><strong>好気的条件での再生＝電子伝達系に電子を渡す。ただしNADH自体はミトコンドリア内膜を通過できないため、電子だけを運ぶ2つのシャトルを用いる。</strong></p>
+    <p><strong>① リンゴ酸-アスパラギン酸シャトル（肝臓・心筋・腎臓）。</strong>細胞質でオキサロ酢酸＋NADH→リンゴ酸（細胞質MDH、ここで<strong>NAD<sup>+</sup>が再生</strong>）。リンゴ酸はα-ケトグルタル酸との交換輸送体でマトリックスへ入り、ミトコンドリアMDHによりオキサロ酢酸に戻ってNADHを再生する。オキサロ酢酸は膜を通れないのでアスパラギン酸に変換されて細胞質へ戻る。可逆的で、NADHをマトリックスNADHとして渡すため複合体Iから電子が入り、<strong>約2.5 ATP相当</strong>となる。</p>
+    <p><strong>② グリセロール3-リン酸シャトル（骨格筋・脳・褐色脂肪組織）。</strong>細胞質でジヒドロキシアセトンリン酸＋NADH→グリセロール3-リン酸（ここで<strong>NAD<sup>+</sup>が再生</strong>）。グリセロール3-リン酸は内膜の外表面にあるFAD依存性グリセロール3-リン酸脱水素酵素に電子を渡し、電子はユビキノンを経て複合体IIIへ入る。複合体Iを飛ばすため<strong>約1.5 ATP相当</strong>と効率は低いが、実質的に不可逆で速く、NADH/NAD<sup>+</sup>比が高くても働くため、需要が急増する組織に適する。</p>
+    <p><strong>③ 嫌気的条件・ミトコンドリアを欠く細胞では乳酸脱水素酵素による。</strong><code>ピルビン酸 ＋ NADH → 乳酸 ＋ NAD<sup>+</sup></code>。赤血球（ミトコンドリアなし）、激しい運動中の速筋、増殖中の腫瘍細胞（ワールブルグ効果）で主要となる。生じた乳酸は肝臓へ運ばれて糖新生でグルコースに戻る（コリ回路）。</p>
+  </div>
+
+  <h3 class="blk">解説</h3>
+  <h4><span class="idx">1.</span>解糖系の収支は「ATPは増えるがNAD<sup>+</sup>はゼロ和」</h4>
+  <p>グルコース1分子から解糖系はATPを正味2分子作りますが、同時にNAD<sup>+</sup>を2分子消費します。この2分子を返さない限り、次のグルコースは処理できません。<b>解糖系にとって律速になり得るのは基質でも酵素でもなく、補酵素の在庫</b>である ── この視点を持つと、乳酸発酵もシャトルも同じ問題への異なる解に見えてきます。</p>
+  <div class="flow">          【共通の問題】 GAPDHが NAD⁺ → NADH に変える。NAD⁺を返さないと解糖は止まる。
+
+   ┌─ 好気・肝/心/腎 ── <b>リンゴ酸-アスパラギン酸シャトル</b> → 複合体I → O₂    （〜2.5 ATP）
+   ├─ 好気・筋/脳/BAT ─ <b>グリセロール3-リン酸シャトル</b>   → 複合体III → O₂  （〜1.5 ATP）
+   └─ 嫌気・赤血球 ──── <b>乳酸脱水素酵素</b> → 乳酸として体外（肝）へ持ち出す  （0 ATP）
+
+   ※「グルコース1分子＝38 ATP か 36 ATP か」という高校での曖昧さは、
+      どちらのシャトルを使うかの違いに由来します（実際の現代的な値は約30〜32）。</div>
+
+  <h4><span class="idx">2.</span>2つのシャトルの使い分け</h4>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th></th><th>リンゴ酸-アスパラギン酸シャトル</th><th>グリセロール3-リン酸シャトル</th></tr></thead>
+    <tbody>
+      <tr><th>主な組織</th><td>肝臓・心筋・腎臓</td><td>骨格筋・脳・褐色脂肪</td></tr>
+      <tr><th>可逆性</th><td>可逆（濃度勾配に依存）</td><td>実質不可逆</td></tr>
+      <tr><th>電子の入口</th><td>複合体I（NADHとして）</td><td>複合体III（ユビキノン経由）</td></tr>
+      <tr><th>ATP収量</th><td>約2.5</td><td>約1.5</td></tr>
+      <tr><th>長所</th><td>効率が高い</td><td>速く、NADHが多い状況でも動く</td></tr>
+    </tbody>
+  </table></div>
+  <p>効率のリンゴ酸-アスパラギン酸シャトル、速度のグリセロール3-リン酸シャトル、という対比です。骨格筋のように需要が瞬時に何十倍にもなる組織では、ATP収量を1分子犠牲にしてでも「詰まらないこと」が優先されます。褐色脂肪でこのシャトルが多いのは、そもそもATPを作るのが目的ではなく<b>基質を速く酸化して熱にすること</b>が目的だから（大問II）と考えると一貫します。</p>
+
+  <div class="note"><span class="lbl">Note</span>細胞質と マトリックスでNADH/NAD<sup>+</sup>比が独立に保たれていること自体が重要です。細胞質は酸化的（NAD<sup>+</sup>が多い＝解糖を回しやすい）、マトリックスは還元的（NADHが多い＝呼吸鎖に電子を供給できる）。シャトルはこの2つのプールを「電子だけ」でつなぐことで、両方の性格を保ったまま連結する装置だといえます。</div>
+</section>
+
+<!-- ================= VII ================= -->
+<section class="q" id="q7">
+  <div class="q-head">
+    <span class="q-num">VII</span>
+    <h2 class="q-title">経口糖負荷試験と肝臓 ── グルコキナーゼという血糖センサー</h2>
+    <span class="q-tag">血糖調節</span>
+  </div>
+
+  <h3 class="blk">問題文</h3>
+  <div class="prompt">
+    <p>健常成人に経口糖負荷試験を行うと、投与30分後に血糖値がピークに達し、その後血糖値は低下する。肝臓での解糖系に対して、もっともこれに貢献する反応を説明せよ。</p>
+  </div>
+
+  <h3 class="blk">高校生物からの橋渡し</h3>
+  <div class="basics">
+    <span class="lbl">Prerequisites</span>
+    <p><b>高校で習ったこと。</b>血糖値が上がるとすい臓のランゲルハンス島B細胞からインスリンが分泌され、肝臓でのグリコーゲン合成や細胞への糖の取り込みが促進されて血糖が下がる。下がるとA細胞からグルカゴンが出て逆の反応が起こる。</p>
+    <p><b>大学で足すこと①：ホルモンだけでは説明が足りない。</b>肝臓の糖取り込みは、実はインスリンによる輸送体の増加ではほとんど説明できません。肝細胞の糖輸送体<b>GLUT2</b>はインスリン非依存的で、常に膜にあり、双方向にグルコースを通します（筋・脂肪のGLUT4とは対照的）。つまり肝細胞内外のグルコース濃度はほぼ等しくなる。それでも食後に肝がどんどん糖を取り込めるのは、<b>入ってきたグルコースを片端からリン酸化して「濃度」から消してしまう酵素</b>があるからです。それがグルコキナーゼです。</p>
+    <p><b>大学で足すこと②：K<sub>m</sub>という概念。</b>酵素が最大速度の半分で働くときの基質濃度をK<sub>m</sub>といい、<b>K<sub>m</sub>が小さい＝低濃度でも飽和する（常にフル稼働）</b>、<b>K<sub>m</sub>が大きい＝高濃度になって初めて働き出す（センサーになれる）</b>という意味を持ちます。同じ反応を触媒する酵素でも、K<sub>m</sub>を変えたアイソザイムを臓器ごとに配置することで、体は「役割分担」を実現しています。本問はその代表例です。</p>
+  </div>
+
+  <h3 class="blk">解答</h3>
+  <div class="answer">
+    <p><strong>もっとも貢献する反応＝グルコキナーゼ（ヘキソキナーゼIV）による、グルコースのグルコース6-リン酸へのリン酸化。</strong><br><code>グルコース ＋ ATP → グルコース6-リン酸 ＋ ADP</code></p>
+    <p><strong>理由①：K<sub>m</sub>が高く、食後の血糖域で初めて働く「血糖センサー」である。</strong>他組織のヘキソキナーゼI〜IIIのK<sub>m</sub>が0.1 mM以下で空腹時血糖（約5 mM）でも常時飽和しているのに対し、グルコキナーゼはS<sub>0.5</sub>が約10 mMと高く、シグモイド型の速度曲線を示す。糖負荷後に門脈血糖が10〜15 mMまで上昇すると反応速度が急峻に増大し、<strong>血糖上昇に比例して肝臓が糖を取り込む</strong>。</p>
+    <p><strong>理由②：生成物であるグルコース6-リン酸によるフィードバック阻害を受けない。</strong>ヘキソキナーゼIはG6Pで阻害されるため取り込み量に上限があるが、グルコキナーゼは阻害されないので、糖が大量に流入する限り処理し続けられる。</p>
+    <p><strong>理由③：リン酸化＝「捕捉」であり、取り込みの駆動力を作る。</strong>GLUT2は双方向性だがグルコース6-リン酸は膜を通れない。リン酸化によって細胞内の遊離グルコース濃度が下がり続けるため、血中から肝細胞への濃度勾配が維持され、正味の取り込みが持続する。</p>
+    <p><strong>理由④：グルコキナーゼ調節タンパク質（GKRP）による局在制御。</strong>空腹時、グルコキナーゼはGKRPと結合して核内に隔離され働けない。血糖（グルコース）が上昇するとGKRPから解離して細胞質へ移行し、活性を発揮する。フルクトース6-リン酸はGKRPとの結合を促進、フルクトース1-リン酸（果糖摂取のシグナル）は解離を促進する。加えてインスリンはSREBP-1cを介してグルコキナーゼの<strong>転写を誘導</strong>し、酵素量そのものを増やす。</p>
+    <p><strong>下流の帰結。</strong>生じたグルコース6-リン酸は、①グリコーゲン合成（食後の主要な行き先）、②解糖系→ピルビン酸→アセチルCoA→脂肪酸合成、③ペントースリン酸経路へ振り分けられる。補助的に、インスリンによるPFK-2/FBPase-2の脱リン酸化でフルクトース2,6-ビスリン酸が増加してPFK-1が活性化され、またL型ピルビン酸キナーゼも脱リン酸化により活性化されるが、<strong>食後の肝糖取り込み量を規定しているのはグルコキナーゼ反応</strong>である。</p>
+  </div>
+
+  <h3 class="blk">解説</h3>
+
+  <h4><span class="idx">1.</span>ヘキソキナーゼとグルコキナーゼ ── 同じ反応、正反対の設計思想</h4>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th></th><th>ヘキソキナーゼI〜III（筋・脳ほぼ全組織）</th><th>グルコキナーゼ＝ヘキソキナーゼIV（肝・膵B細胞）</th></tr></thead>
+    <tbody>
+      <tr><th>K<sub>m</sub>（S<sub>0.5</sub>）</th><td>約0.01〜0.1 mM（低い）</td><td>約10 mM（高い）</td></tr>
+      <tr><th>速度曲線</th><td>ミカエリス・メンテン型</td><td>シグモイド型（協同性様の挙動）</td></tr>
+      <tr><th>G6Pによる阻害</th><td>受ける</td><td><b>受けない</b></td></tr>
+      <tr><th>血糖5 mMでの状態</th><td>ほぼ飽和＝常にフル稼働</td><td>低活性＝ほとんど働かない</td></tr>
+      <tr><th>役割</th><td>自分の細胞のためにグルコースを確保する（低血糖でも脳を守る）</td><td><b>余った糖を処分する</b>。血糖センサーとして働く</td></tr>
+    </tbody>
+  </table></div>
+  <p>この対比が本問の答えの核です。もし肝臓が低K<sub>m</sub>のヘキソキナーゼを持っていたら、空腹時にも肝が血中のグルコースを奪ってしまい、脳が飢えます。<b>肝臓は「血糖が余っているときだけ引き取る」役に徹する必要があり、そのためにあえてK<sub>m</sub>の高い酵素を用意している</b>のです。同じグルコキナーゼが膵B細胞にもあるのは、そこでも「血糖が高いことを感知する」ことが仕事（＝インスリン分泌のトリガー）だからで、グルコキナーゼはしばしば<b>グルコースセンサー</b>と呼ばれます。</p>
+
+  <h4><span class="idx">2.</span>糖負荷後30分に何が起きているか</h4>
+  <div class="flow">   0分   経口グルコース投与
+    │
+   30分  <b>門脈血糖が10〜15 mMに上昇</b>（体循環より高い＝肝が最初に浴びる）
+    │      │
+    │      ├─ グルコキナーゼがGKRPから解離し核 → 細胞質へ移行
+    │      ├─ 高いK<sub>m</sub>のおかげで反応速度が急上昇 → G6Pを大量産生
+    │      ├─ インスリン↑ → グリコーゲンシンターゼ脱リン酸化（活性化）
+    │      │                 → PFK-2活性化 → F2,6BP↑ → PFK-1活性化
+    │      │                 → L型ピルビン酸キナーゼ脱リン酸化（活性化）
+    │      └─ 同時にグルカゴン↓ → 糖新生・グリコーゲン分解が停止
+    ▼
+  60-120分 肝でのグリコーゲン合成・解糖・脂肪酸合成に振り分けられ、<b>血糖が低下</b>
+           （加えて筋・脂肪組織ではインスリンによりGLUT4が細胞膜へ移行し取り込みが増える）</div>
+  <p>答案では「グルコキナーゼ反応」を明示したうえで、<b>K<sub>m</sub>が高いこと・G6Pで阻害されないこと・GKRPによる局在制御</b>の3点を挙げれば十分です。インスリンによる他の酵素の活性化は「補助的に」と添える程度でよく、それらを主役にすると設問の「もっとも貢献する反応」という限定に答えたことになりません。</p>
+
+  <h4><span class="idx">3.</span>肝臓が「緩衝装置」であることの意味</h4>
+  <p>食事で吸収された糖はまず門脈を通って肝臓に入るため、肝臓は体循環より高い糖濃度に最初にさらされます。ここで大量に引き取ることで、全身の血糖のピークが抑えられます（<b>ファーストパス効果</b>）。経口投与された糖のおよそ3分の1が肝に取り込まれるとされ、静脈内にグルコースを投与した場合よりも経口投与のほうが血糖上昇が緩やかになる一因です（インクレチン効果とあわせて理解してください）。逆に空腹時は、同じ肝臓がグルコース6-ホスファターゼでG6Pを遊離グルコースに戻し血中に放出します。<b>肝臓は取り込みと放出の両方を担う血糖の緩衝装置であり、その方向を決めているのがグルコキナーゼとグルコース6-ホスファターゼの綱引き</b>です。</p>
+
+  <div class="note"><span class="lbl">Clinical</span>グルコキナーゼ遺伝子（GCK）のヘテロ変異は<b>MODY2</b>を起こします。センサーの感度が鈍るため、体は「もっと高い血糖でないと十分と判断しない」状態になり、<b>血糖のセット点が少し高いところで安定</b>します。空腹時血糖が軽度高値のまま生涯ほぼ進行せず、細小血管合併症も稀で、多くは治療を要しません。「酵素のK<sub>m</sub>が生体のセット点を決めている」ことを直接示す、教科書的な疾患です。</div>
+</section>
+
+<div class="colophon">
+  <span>生化学2026 過去問 解答・解説 ／ 全7題</span>
+  <span>A4印刷用（各大問は改ページ）</span>
+</div>
+
+</div>
